@@ -8,6 +8,8 @@ package modelos;
 import ConexionBD.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -34,21 +36,22 @@ public class ModeloRegistroServicio {
         }
 
     }
-    
-    public boolean modificarServicio(String _id,String registro,String entrega,String repuesto,String servicio) {
-        String consulta = "UPDATE numeroServicio SET fecha_registro='"+registro+"',"
-                + "fecha_entrega='"+entrega+"',costo_repuesto="+repuesto+","
-                + "costo_servicio="+servicio+" where id="+_id;
-        
+
+    public boolean modificarServicio(String _id, String registro, String entrega, String repuesto, String servicio) {
+        String consulta = "UPDATE numeroServicio SET fecha_registro='" + registro + "',"
+                + "fecha_entrega='" + entrega + "',costo_repuesto=" + repuesto + ","
+                + "costo_servicio=" + servicio + " where id=" + _id;
+
         if (Conexion.ejecutarConsulta(consulta)) {
             return true;
         } else {
             return false;
         }
     }
+
     public String[] getUltimoRegistro() {
         int id = 0;
-        String[] numeroServicio = {"", "", "", "", "", "",""};
+        String[] numeroServicio = {"", "", "", "", "", "", ""};
         try {
             String getId = "select max(id) from numeroServicio";
             ResultSet resId = Conexion.getDatos(getId);
@@ -72,7 +75,6 @@ public class ModeloRegistroServicio {
                 numeroServicio[4] = resultado.getString(5);
                 numeroServicio[5] = resultado.getString(6);
                 numeroServicio[6] = resultado.getString(7);
-                
 
             }
             resultado.close();
@@ -82,19 +84,18 @@ public class ModeloRegistroServicio {
         return numeroServicio;
     }
 
-    
     /* REGISTRO DE SOPORTE PORTATILES */
     public boolean guardarPortatil(String _idServicio,
-                                    String _marca,
-                                    String _modelo,
-                                    String _nroSerie,
-                                    String _cargador,
-                                    String _serieCargador,
-                                    String _descripcion) {
+            String _marca,
+            String _modelo,
+            String _nroSerie,
+            String _cargador,
+            String _serieCargador,
+            String _descripcion) {
         String consulta = "INSERT INTO soporte_portatil "
                 + "(id_servicio,marca,modelo,numero_serie,cargador,numero_serie_cargador,descripcion_trabajo)"
-                + " VALUES(" + _idServicio + ",'"+_marca +"',"
-                + "'"+_modelo+"','" + _nroSerie + "','" + _cargador + "','" + _serieCargador + "','" + _descripcion + "')";
+                + " VALUES(" + _idServicio + ",'" + _marca + "',"
+                + "'" + _modelo + "','" + _nroSerie + "','" + _cargador + "','" + _serieCargador + "','" + _descripcion + "')";
         if (Conexion.ejecutarConsulta(consulta)) {
             return true;
         } else {
@@ -102,4 +103,55 @@ public class ModeloRegistroServicio {
         }
 
     }
+
+    /*EXTRAER DATOS DE PORTATIL*/
+    public String[] getPortatil(String _id_servicio) {
+        try {
+            String[] portatil = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
+            String consulta = "select date(S.fecha_registro),time(S.fecha_registro),date(S.fecha_entrega),time(S.fecha_entrega),"
+                    + " S.costo_repuesto,S.costo_servicio,C.carnetIdentidad,C.nombre,C.numeroTelefono,C.direccion,"
+                    + " P.marca,P.modelo,P.numero_serie,P.cargador,P.numero_serie_cargador,P.descripcion_trabajo"
+                    + " from soporte_portatil P inner join numeroServicio S on P.id_servicio = S.id "
+                    + " inner join cliente C on C.id = S.id_cliente where P.id_servicio=" + _id_servicio;
+            ResultSet resultado = Conexion.getDatos(consulta);
+
+            if (resultado.next()) {
+                portatil[0] = resultado.getString(1);//fecha registro
+                portatil[1] = resultado.getString(2);//hora registro
+                portatil[2] = resultado.getString(3);//fecha entrega
+                portatil[3] = resultado.getString(4);//hora entrega
+                portatil[4] = resultado.getString(5);//costo repuesto
+                portatil[5] = resultado.getString(6);//costo servicio
+                portatil[6] = resultado.getString(7);//carnet cliente
+                portatil[7] = resultado.getString(8);//nombre
+                portatil[8] = resultado.getString(9);//numero celular
+                portatil[9] = resultado.getString(10);//direccion
+                portatil[10] = resultado.getString(11);//marca 
+                portatil[11] = resultado.getString(12);//modelo
+                portatil[12] = resultado.getString(13);//numero serie
+                portatil[13] = resultado.getString(14);//cargador
+                portatil[14] = resultado.getString(15);//numero serie cargador
+                portatil[15] = resultado.getString(16);//descripciom
+
+            }
+            return portatil;
+        } catch (SQLException ex) {
+            System.err.println("Error al traer datos de portatil");
+        }
+        return null;
+    }
+
+    public boolean updateLaptop(String _id_servicio,String marca,
+                                String modelo,String serie,String cargador,String serie_cargador,String trabajo) {
+        String consulta = "UPDATE soporte_portatil SET marca='"+marca+"',modelo='"+modelo+"',"
+                + "numero_serie='"+serie+"',cargador='"+cargador+"',"
+                + "numero_serie_cargador='"+serie_cargador+"',"
+                + "descripcion_trabajo ='"+trabajo+"' where id_servicio="+_id_servicio;
+        if (Conexion.ejecutarConsulta(consulta)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

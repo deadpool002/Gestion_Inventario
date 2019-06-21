@@ -70,10 +70,12 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
     otros panelOtros;
 
     portatil panelPortatil;
+    
     InterfazImpresion interfazImpresion;
 
     /*REGISTRO DE SERVICIOS*/
     RegistroPortatil registroPortatil;
+    
     RegistroImpresora registroImpresora;
     ModeloRegistroServicio modeloRegistroServicio;
     
@@ -559,13 +561,8 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
 
     private void Portatiles() {
         String datosServicio[] = modeloRegistroServicio.getUltimoRegistro();
-        Date fechaParseada = null;
-        try {
-            fechaParseada = new SimpleDateFormat("yyyy-MM-dd").parse(datosServicio[0]);
-        } catch (ParseException ex) {
-            System.out.println("Error a parsear Fecha");
-        }
-        registroPortatil.getFechaRecepcion().setDate(fechaParseada);
+        
+        registroPortatil.getFechaRecepcion().setDate(parseDate(datosServicio[0]));
         registroPortatil.getHoraRecepcion().setText(datosServicio[1]);
         registroPortatil.getTxtCarnet().setText(datosServicio[2]);
         registroPortatil.getTxtNombre().setText(datosServicio[3]);
@@ -573,6 +570,20 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroPortatil.getTxtCelular().setText(datosServicio[5]);
         registroPortatil.getNumeroOrden().setText(datosServicio[6]);
         registroPortatil.setVisible(true);
+        registroPortatil.getBtnGuardar().setVisible(true);
+        /*LIMPIAR INTERFAZ DE REGISTRO PORTATIL*/
+        registroPortatil.getFechaEntrega().setDate(null);
+        registroPortatil.getHoraEntrega().setText("00:00");
+        registroPortatil.getTxtRepuesto().setText("0");
+        registroPortatil.getTxtServicio().setText("0");
+        registroPortatil.getTxtMarca().setText("");
+        registroPortatil.getTxtModelo().setText("");
+        registroPortatil.getTxtSeriePc().setText("");
+        registroPortatil.getCargadorNO().isSelected();
+        
+        registroPortatil.getSerieCargador().setText("");
+        registroPortatil.getTxtTrabajo().setText("\n\nOBSERVACIONES:");
+        
         registroPortatil.getBtnGuardar().addActionListener((ActionEvent ae) -> {
             String id = registroPortatil.getNumeroOrden().getText();
             
@@ -605,11 +616,85 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
                     modeloRegistroServicio.guardarPortatil(id, marca, modelo, numero_serie, cargador, serie_cargador, descripcion))
             {
                 System.out.println("Registrado Correctamente");
+                cargarDatosPortatil(id);
             }else{
                 System.out.println("Error al Registrar el equipo");
             }
         });
+        registroPortatil.getBtnModificar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if(modeloRegistroServicio.updateLaptop(registroPortatil.getNumeroOrden().getText(),
+                        registroPortatil.getTxtMarca().getText(),
+                        registroPortatil.getTxtModelo().getText(),
+                        registroPortatil.getTxtSeriePc().getText(),
+                        registroPortatil.getCargadorSI().isSelected()?"SI":"NO",
+                        registroPortatil.getCargadorSI().isSelected()?registroPortatil.getSerieCargador().getText():"",
+                        registroPortatil.getTxtTrabajo().getText())
+                        && 
+                   modeloRegistroServicio.modificarServicio(
+                        registroPortatil.getNumeroOrden().getText(),
+                        df.format(registroPortatil.getFechaRecepcion().getDate())+" "
+                                +registroPortatil.getHoraRecepcion().getText(),
+                        df.format(registroPortatil.getFechaEntrega().getDate())+" "
+                                +registroPortatil.getHoraEntrega().getText(),
+                        registroPortatil.getTxtRepuesto().getText(),
+                        registroPortatil.getTxtServicio().getText())){
+                    cargarDatosPortatil(registroPortatil.getNumeroOrden().getText());
+                }
+                else{
+                    System.out.println("Error al modificar Datos");
+                }
+            }
+        });
+        registroPortatil.getBtnImprimir().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                String[] portatil = modeloRegistroServicio.getPortatil(registroPortatil.getNumeroOrden().getText());
+                panelPortatil.fillForm(registroPortatil.getNumeroOrden().getText(),
+                        portatil[0]+" "+portatil[1], 
+                        portatil[2]+" "+portatil[3],
+                        portatil[4], portatil[5],
+                        portatil[6],portatil[7],
+                        portatil[8],portatil[9],
+                        portatil[10],portatil[11],
+                        portatil[12], portatil[13],
+                        portatil[14],portatil[15]);
+                interfazImpresion.setImpresion(panelPortatil);
+                interfazImpresion.setVisible(true);
+            }
+        });
     }
+    
+    private void cargarDatosPortatil(String id){
+        String[] portatil = modeloRegistroServicio.getPortatil(id);
+        registroPortatil.getBtnGuardar().setVisible(false);
+       
+        
+        registroPortatil.getFechaRecepcion().setDate(parseDate(portatil[0]));
+        registroPortatil.getHoraRecepcion().setText(portatil[1]);
+        registroPortatil.getFechaEntrega().setDate(parseDate(portatil[2]));
+        registroPortatil.getHoraEntrega().setText(portatil[3]);
+        registroPortatil.getTxtRepuesto().setText(portatil[4]);
+        registroPortatil.getTxtServicio().setText(portatil[5]);
+        registroPortatil.getTxtCarnet().setText(portatil[6]);
+        registroPortatil.getTxtNombre().setText(portatil[7]);
+        registroPortatil.getTxtCelular().setText(portatil[8]);
+        registroPortatil.getTxtDireccion().setText(portatil[9]);
+        registroPortatil.getTxtMarca().setText(portatil[10]);
+        registroPortatil.getTxtModelo().setText(portatil[11]);
+        registroPortatil.getTxtSeriePc().setText(portatil[12]);
+        if(portatil[13].equals("SI")){
+            registroPortatil.getCargadorSI().isSelected();    
+        }else{
+            registroPortatil.getCargadorNO().isSelected();
+        }
+        registroPortatil.getSerieCargador().setText(portatil[14]);
+        registroPortatil.getTxtTrabajo().setText(portatil[15]);
+        registroPortatil.getNumeroOrden().setText(id);
+    }
+    
     private void Impresoras(){
         String datosServicio[] = modeloRegistroServicio.getUltimoRegistro();
         Date fechaParseada = null;
@@ -618,6 +703,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         } catch (ParseException ex) {
             System.out.println("Error a parsear Fecha");
         }
+        
         registroImpresora.getFechaRecepcion().setDate(fechaParseada);
         registroImpresora.getHoraRecepcion().setText(datosServicio[1]);
         registroImpresora.getTxtCarnet().setText(datosServicio[2]);
@@ -626,6 +712,27 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroImpresora.getTxtCelular().setText(datosServicio[5]);
         registroImpresora.getTxtNumeroOrden().setText(datosServicio[6]);
         registroImpresora.setVisible(true);
+        registroImpresora.getBtnGuardar().addActionListener((ActionEvent ae) -> {
+            String id = registroImpresora.getTxtNumeroOrden().getText();
+            
+            String fecha_registro = df.format(registroImpresora.getFechaRecepcion().getDate())+" "
+                    +registroImpresora.getHoraRecepcion().getText();
+            String fecha_entrega = df.format(registroImpresora.getFechaEntrega().getDate())+" "
+                    +registroImpresora.getHoraEntrega().getText();
+            String costo_repuesto= registroImpresora.getTxtCostoRepuesto().getText();
+            String costo_servicio= registroImpresora.getTxtCostoServicio()  .getText();
+            
+        });
     }
-
+    
+    
+    private Date parseDate(String fecha){
+        Date fecha_parseada=null;
+        try {
+            fecha_parseada = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);    
+        } catch (ParseException ex) {
+            System.out.println("Error a parsear Fecha");
+        }
+        return fecha_parseada;
+    }
 }
