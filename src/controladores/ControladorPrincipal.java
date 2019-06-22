@@ -498,16 +498,22 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
     private void controladorEquipos() {
 
         this.panelEquipos.BtnImprimir().addActionListener((ActionEvent ae) -> {
-             int dialogoResultado = JOptionPane.showConfirmDialog(null, "¿Esta segur@ de que este equipo ya se entrego?", "Pregunta", JOptionPane.YES_NO_OPTION);
+
+            if (panelEquipos.TablaEquipos().getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar un Equipo");
+            } else {
+                int dialogoResultado = JOptionPane.showConfirmDialog(null, "¿Esta segur@ de que este equipo ya se entrego?", "Pregunta", JOptionPane.YES_NO_OPTION);
                 if (dialogoResultado == JOptionPane.YES_OPTION) {
-                    int id = Integer.parseInt(panelEquipos.TablaEquipos().getValueAt(panelEquipos.TablaEquipos().getSelectedRow(),0).toString());
+                    int id = Integer.parseInt(panelEquipos.TablaEquipos().getValueAt(panelEquipos.TablaEquipos().getSelectedRow(), 0).toString());
                     if (modeloEquipos.entregarEquipo(id)) {
-                        
+
                     } else {
                         JOptionPane.showMessageDialog(null, "El equipo no se pudo modificar");
                     }
                     cargarDatosEquipos(panelEquipos.TxtBusqueda().getText());
                 }
+            }
+
         });
         this.panelEquipos.getComboEstado().addActionListener((ActionEvent ae) -> {
             cargarDatosEquipos(panelEquipos.TxtBusqueda().getText());
@@ -532,6 +538,76 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         });
         //cargarDatosEquipos(panelEquipos.TxtBusqueda().getText());
 
+        this.panelEquipos.TablaEquipos().addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                System.out.println(panelEquipos.TablaEquipos().getValueAt(panelEquipos.TablaEquipos().getSelectedRow(), 0)
+                        + " " + getTipo() + " " + getEstado());
+                if (getTipo().equals("pc")) {
+                    loadDesktopData(panelEquipos.TablaEquipos().getValueAt(panelEquipos.TablaEquipos().getSelectedRow(), 0).toString());
+                    registroPc.setVisible(true);
+                }
+                if (getTipo().equals("impresora")) {
+                    loadPrinterData(panelEquipos.TablaEquipos().getValueAt(panelEquipos.TablaEquipos().getSelectedRow(), 0).toString());
+                    registroImpresora.setVisible(true);
+                }
+                if (getTipo().equals("portatil")) {
+                    cargarDatosPortatil(panelEquipos.TablaEquipos().getValueAt(panelEquipos.TablaEquipos().getSelectedRow(), 0).toString());
+                    registroPortatil.setVisible(true);
+                }
+                if (getTipo().equals("otros")) {
+                    loadOtherData(panelEquipos.TablaEquipos().getValueAt(panelEquipos.TablaEquipos().getSelectedRow(), 0).toString());
+                    registroOtros.setVisible(true);
+                }
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent me) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+            }
+        });
+        this.panelEquipos.getImpresora().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                cargarDatosEquipos(panelEquipos.TxtBusqueda().getText());
+            }
+        });
+        this.panelEquipos.getPc().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                cargarDatosEquipos(panelEquipos.TxtBusqueda().getText());
+            }
+        });
+        this.panelEquipos.getPortatil().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                cargarDatosEquipos(panelEquipos.TxtBusqueda().getText());
+            }
+        });
+        this.panelEquipos.getOtro().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                cargarDatosEquipos(panelEquipos.TxtBusqueda().getText());
+            }
+        });
     }
 
     private JPanel cargarPanel(JPanel panel) {
@@ -553,7 +629,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         if (panelEquipos.getOtro().isSelected()) {
             tipo = "otros";
         }
-        
+
         return tipo;
     }
 
@@ -738,8 +814,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroImpresora.getTxtNumeroOrden().setText(datosServicio[6]);
         registroImpresora.getBtnGuardar().setVisible(true);
         registroImpresora.setVisible(true);
-        
-        
+
         registroImpresora.getFechaEntrega().setDate(null);
         registroImpresora.getHoraEntrega().setText("00:00");
         registroImpresora.getTxtCostoRepuesto().setText("0");
@@ -747,15 +822,13 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroImpresora.getTxtMarca().setText("");
         registroImpresora.getTxtModelo().setText("");
         registroImpresora.getTxtNroSerie().setText("");
-        
+
         registroImpresora.getCartuchoNO().setSelected(true);
-        
+
         registroImpresora.getTxtColor().setText("");
         registroImpresora.getTxtNegro().setText("");
         registroImpresora.getTxtTrabajo().setText("\n\nOBSERVACIONES:");
-        
 
-            
         registroImpresora.getBtnGuardar().addActionListener(new ActionListener() {
 
             @Override
@@ -887,7 +960,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroPc.getTxtTarjetaVideo().setText("");
         registroPc.getTxtTarjetaWifi().setText("");
         registroPc.getTxtTrabajo().setText("\n\nOBSERVACIONES:");
-        
+
         registroPc.getBtnGuardar().addActionListener(new ActionListener() {
 
             @Override
@@ -1014,7 +1087,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroPc.getTxtCables().setText(desktop[21]);
         registroPc.getTxtSerieCables().setText(desktop[22]);
         registroPc.getTxtTrabajo().setText(desktop[23]);
-
+        registroPc.getTxtNumeroOrden().setText(id);
     }
 
     private void Others() {
@@ -1068,7 +1141,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
                         registroOtros.getTxtServicio().getText())
                         && modeloRegistroServicio.updateOther(registroOtros.getNumeroOrden().getText(),
                                 registroOtros.getTxtTrabajo().getText())) {
-                
+
                     loadOtherData(registroOtros.getNumeroOrden().getText());
                 } else {
                     System.out.println("Error al registrar");

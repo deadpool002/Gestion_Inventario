@@ -14,7 +14,7 @@ Create Table usuario(
 
 insert into usuario(user,password,nombreUsuario,cargo,fechaIngreso) values('Ruben',SHA1('password'),'Ruben','Administrador',NOW());
 insert into usuario(user,password,nombreUsuario,cargo,fechaIngreso) values('Ruben2',SHA1('password'),'Ruben','Usuario',NOW());
-select * from usuario u inner join bitacora b on u.id=b.id where b.id=1;
+
 Create Table cliente(
 	id int auto_increment,
     carnetIdentidad int,
@@ -24,10 +24,6 @@ Create Table cliente(
     direccion varchar(100),
     primary key(id,carnetIdentidad)
 );
-
-insert into cliente(carnetIdentidad,nombre,numeroTelefono,fechaRegistro)values
-(14176648,'Juan Pablo','78670128',now());
-
 
 
 create table numeroServicio(
@@ -42,22 +38,8 @@ create table numeroServicio(
     tipo_registro varchar(20),
     foreign key (id_cliente) references cliente(id)
 );
-select * from cliente;
-select * from numeroServicio;
-Update numeroServicio set fecha_registro ='2019-06-05' where id = 4;
-insert into numeroServicio(id_cliente,fecha_registro) values
-(4,NOW());
-select max(id) from numeroServicio ;
 
-select date(S.fecha_registro),time(S.fecha_registro),C.carnetIdentidad,
-C.nombre,S.id_cliente
-from numeroServicio S inner join cliente C on S.id_cliente = C.id where S.id=11;
 
-drop table soporte_impresora;
-drop table soporte_portatil;
-drop table soporte_pc;
-drop table soporte_otros;
-drop table numeroServicio;
 create table soporte_impresora(
 	id_servicio int,
     marca varchar(50),
@@ -69,21 +51,12 @@ create table soporte_impresora(
 	descripcion_trabajo text,
     foreign key (id_servicio) references numeroServicio(id)
 );
-INSERT INTO soporte_impresora
-	(id_servicio,marca,modelo,numero_serie,cartuchos,color,negro,descripcion_trabajo)
-VALUES(5,'CANON','asdas','356235685','NO','','','alkshdasmdkjashg');
-select * from soporte_impresora;
-
-Update soporte_impresora SET
-	marca='asd',modelo='asd',numero_serie='asd',
-    cartuchos='NO',color='254651',negro='656',descripcion_trabajo='54'
-WHERE id_servicio = 28;
-
 create table soporte_otros(
 	id_servicio int,
     descripcion_trabajo text,
 	foreign key (id_servicio) references numeroServicio(id)
 );
+
 create table soporte_portatil(
 	id_servicio int,
     marca varchar(100),
@@ -94,15 +67,8 @@ create table soporte_portatil(
     descripcion_trabajo text,
     foreign key (id_servicio) references numeroServicio(id)
 );
-select date(S.fecha_registro),time(S.fecha_registro),date(S.fecha_entrega),time(S.fecha_entrega),
-	S.costo_repuesto,S.costo_servicio,C.carnetIdentidad,C.nombre,C.numeroTelefono,C.direccion,
-    I.marca,I.modelo,I.numero_serie,I.cartuchos,I.color,I.negro,I.descripcion_trabajo
-from soporte_impresora I inner join numeroServicio S on I.id_servicio = S.id
-						inner join cliente C on C.id = S.id_cliente where I.id_servicio=30;
 
-UPDATE soporte_portatil SET marca='',modelo='',numero_serie='',cargador='',
-numero_serie_cargador='',
-descripcion_trabajo ='' where id_servicio=17;                        
+                  
                         
 create table soporte_pc(
 	id_servicio int,

@@ -317,6 +317,7 @@ public class portatil extends javax.swing.JPanel{
         cargadorNo.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(cargadorNo);
         cargadorNo.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        cargadorNo.setSelected(true);
         cargadorNo.setText("NO");
         cargadorNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
