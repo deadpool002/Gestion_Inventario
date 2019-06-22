@@ -60,7 +60,7 @@ public class InterfazImpresion extends javax.swing.JFrame implements Printable {
         );
         ImpresionLayout.setVerticalGroup(
             ImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
+            .addGap(0, 772, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -77,7 +77,7 @@ public class InterfazImpresion extends javax.swing.JFrame implements Printable {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(571, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(231, 231, 231))
             .addGroup(layout.createSequentialGroup()

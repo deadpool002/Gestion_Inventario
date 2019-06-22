@@ -5,19 +5,13 @@
  */
 package interfaces.impresion;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import static java.awt.print.Printable.NO_SUCH_PAGE;
-import static java.awt.print.Printable.PAGE_EXISTS;
-import java.awt.print.PrinterException;
+
 
 /**
  *
  * @author pablo
  */
-public class impresora extends javax.swing.JPanel implements Printable {
+public class impresora extends javax.swing.JPanel {
 
     /**
      * Creates new form impresora
@@ -36,396 +30,849 @@ public class impresora extends javax.swing.JPanel implements Printable {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
+        labelNro1 = new javax.swing.JLabel();
+        jLabel78 = new javax.swing.JLabel();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel84 = new javax.swing.JLabel();
+        jLabel85 = new javax.swing.JLabel();
+        jLabel92 = new javax.swing.JLabel();
+        jLabel101 = new javax.swing.JLabel();
         jLabel103 = new javax.swing.JLabel();
         jLabel104 = new javax.swing.JLabel();
+        jLabel107 = new javax.swing.JLabel();
+        jLabel108 = new javax.swing.JLabel();
+        labelFechaRegistro1 = new javax.swing.JLabel();
+        labelFechaEntrega1 = new javax.swing.JLabel();
+        jLabel109 = new javax.swing.JLabel();
+        jLabel110 = new javax.swing.JLabel();
+        jLabel111 = new javax.swing.JLabel();
+        jLabel112 = new javax.swing.JLabel();
+        jLabel113 = new javax.swing.JLabel();
+        labelNombre1 = new javax.swing.JLabel();
+        labelDireccion1 = new javax.swing.JLabel();
+        labelCi1 = new javax.swing.JLabel();
+        labelCelular1 = new javax.swing.JLabel();
+        jLabel114 = new javax.swing.JLabel();
+        labelModelo1 = new javax.swing.JLabel();
+        jLabel115 = new javax.swing.JLabel();
+        jLabel116 = new javax.swing.JLabel();
+        labelMarca1 = new javax.swing.JLabel();
+        labelSerie1 = new javax.swing.JLabel();
+        jLabel117 = new javax.swing.JLabel();
+        jLabel118 = new javax.swing.JLabel();
+        jLabel119 = new javax.swing.JLabel();
+        CartuchoSi1 = new javax.swing.JRadioButton();
+        jLabel120 = new javax.swing.JLabel();
+        CartuchoNo1 = new javax.swing.JRadioButton();
+        jLabel121 = new javax.swing.JLabel();
+        jLabel122 = new javax.swing.JLabel();
+        labelSerieColor1 = new javax.swing.JLabel();
+        jLabel123 = new javax.swing.JLabel();
+        jLabel124 = new javax.swing.JLabel();
+        jLabel125 = new javax.swing.JLabel();
+        jLabel126 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtDescripcion1 = new javax.swing.JTextArea();
+        jLabel127 = new javax.swing.JLabel();
+        jLabel128 = new javax.swing.JLabel();
+        jLabel129 = new javax.swing.JLabel();
+        jLabel130 = new javax.swing.JLabel();
+        labelSerieNegro1 = new javax.swing.JLabel();
+        jLabel131 = new javax.swing.JLabel();
+        labelRepuesto1 = new javax.swing.JTextField();
+        labelServicio1 = new javax.swing.JTextField();
+        jLabel132 = new javax.swing.JLabel();
+        jLabel133 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        labelNro = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        labelFechaRegistro = new javax.swing.JLabel();
+        labelFechaEntrega = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        labelNombre = new javax.swing.JLabel();
+        labelDireccion = new javax.swing.JLabel();
+        labelCi = new javax.swing.JLabel();
+        labelCelular = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        labelModelo = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        labelMarca = new javax.swing.JLabel();
+        labelSerie = new javax.swing.JLabel();
+        jLabel86 = new javax.swing.JLabel();
+        jLabel87 = new javax.swing.JLabel();
+        jLabel88 = new javax.swing.JLabel();
+        CartuchoSi = new javax.swing.JRadioButton();
+        jLabel89 = new javax.swing.JLabel();
+        CartuchoNo = new javax.swing.JRadioButton();
+        jLabel90 = new javax.swing.JLabel();
+        jLabel91 = new javax.swing.JLabel();
+        labelSerieColor = new javax.swing.JLabel();
+        jLabel93 = new javax.swing.JLabel();
+        jLabel94 = new javax.swing.JLabel();
+        jLabel95 = new javax.swing.JLabel();
+        jLabel96 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JTextArea();
+        jLabel97 = new javax.swing.JLabel();
+        jLabel98 = new javax.swing.JLabel();
+        jLabel99 = new javax.swing.JLabel();
+        jLabel100 = new javax.swing.JLabel();
+        labelSerieNegro = new javax.swing.JLabel();
+        jLabel102 = new javax.swing.JLabel();
+        labelRepuesto = new javax.swing.JTextField();
+        labelServicio = new javax.swing.JTextField();
+        jLabel105 = new javax.swing.JLabel();
+        jLabel106 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(766, 437));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
-        jLabel10.setText("Tel:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 20, 10));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setPreferredSize(new java.awt.Dimension(766, 437));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel47.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel47.setText("TECNICO");
-        add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+        jLabel22.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel22.setText("Tel:");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 20, 10));
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
-        jLabel11.setText("64-66285");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 90, 10));
+        jLabel69.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel69.setText("TECNICO");
+        jPanel1.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
-        jLabel48.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel48.setText("Recibí Conforme");
-        add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+        jLabel24.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel24.setText("64-66285");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 90, 10));
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel12.setText("N° Orden");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
+        jLabel70.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel70.setText("Recibí Conforme");
+        jPanel1.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel13.setText("0001");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, -1));
+        jLabel76.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel76.setText("N° Orden");
+        jPanel1.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel14.setText("Fecha Recepción");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+        labelNro1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        labelNro1.setText("0001");
+        jPanel1.add(labelNro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, -1));
 
-        jLabel49.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel49.setText("Costo");
-        add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
+        jLabel78.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel78.setText("Fecha Recepción");
+        jPanel1.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
 
-        jLabel50.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel50.setText("BS.");
-        add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
+        jLabel79.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel79.setText("Costo");
+        jPanel1.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
 
-        jLabel51.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel51.setText("Costo");
-        add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
+        jLabel81.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel81.setText("BS.");
+        jPanel1.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
 
-        jLabel52.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel52.setText("Servicio");
-        add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
+        jLabel84.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel84.setText("Costo");
+        jPanel1.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
 
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel15.setText("Fecha Entrega Apróximada");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
+        jLabel85.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel85.setText("Servicio");
+        jPanel1.add(jLabel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
 
-        jLabel53.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel53.setText("CI:_______________");
-        add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
+        jLabel92.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel92.setText("Fecha Entrega Apróximada");
+        jPanel1.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
 
-        jLabel16.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel16.setText("día/mes/año");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
+        jLabel101.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel101.setText("CI:_______________");
+        jPanel1.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel17.setText("día/mes/año");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
+        jLabel103.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel103.setText("día/mes/año");
+        jPanel1.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
-        jLabel18.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel18.setText("Hora");
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+        jLabel104.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel104.setText("día/mes/año");
+        jPanel1.add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
-        jLabel19.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel19.setText("Hora");
-        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
+        jLabel107.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel107.setText("Hora");
+        jPanel1.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel20.setText("05/06/2019");
-        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
+        jLabel108.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel108.setText("Hora");
+        jPanel1.add(jLabel108, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel22.setText("05/06/2019");
-        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
+        labelFechaRegistro1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelFechaRegistro1.setText("05/06/2019");
+        jPanel1.add(labelFechaRegistro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 130, -1));
 
-        jLabel24.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel24.setText("DATOS  DEL  CLIENTE");
-        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+        labelFechaEntrega1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelFechaEntrega1.setText("05/06/2019");
+        jPanel1.add(labelFechaEntrega1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 130, -1));
 
-        jLabel25.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel25.setText("Nombre:");
-        add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        jLabel109.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel109.setText("DATOS  DEL  CLIENTE");
+        jPanel1.add(jLabel109, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
-        jLabel26.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel26.setText("CI:");
-        add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 40, -1));
+        jLabel110.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel110.setText("Nombre:");
+        jPanel1.add(jLabel110, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
-        jLabel27.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel27.setText("Dirección:");
-        add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        jLabel111.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel111.setText("CI:");
+        jPanel1.add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 40, -1));
 
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel28.setText("Celular:");
-        add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
+        jLabel112.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel112.setText("Dirección:");
+        jPanel1.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        jLabel29.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel29.setText("Pablo Segovia Vargas");
-        add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
+        jLabel113.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel113.setText("Celular:");
+        jPanel1.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
-        jLabel30.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel30.setText("Av Japon 93");
-        add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
+        labelNombre1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelNombre1.setText("Pablo Segovia Vargas");
+        jPanel1.add(labelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 150, -1));
 
-        jLabel31.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel31.setText("12345678");
-        add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
+        labelDireccion1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelDireccion1.setText("Av Japon 93");
+        jPanel1.add(labelDireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 160, -1));
 
-        jLabel32.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel32.setText("78670128");
-        add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+        labelCi1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelCi1.setText("12345678");
+        jPanel1.add(labelCi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 80, -1));
 
-        jLabel33.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel33.setText("DATOS  IMPRESORA");
-        add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
+        labelCelular1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelCelular1.setText("78670128");
+        jPanel1.add(labelCelular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 80, -1));
 
-        jLabel34.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel34.setText("kx-mc6020");
-        add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
+        jLabel114.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel114.setText("DATOS  IMPRESORA");
+        jPanel1.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
 
-        jLabel35.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel35.setText("Marca:");
-        add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        labelModelo1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelModelo1.setText("kx-mc6020");
+        jPanel1.add(labelModelo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 170, 70, -1));
 
-        jLabel36.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel36.setText("Modelo:");
-        add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+        jLabel115.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel115.setText("Marca:");
+        jPanel1.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
-        jLabel37.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel37.setText("panasonic");
-        add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
+        jLabel116.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel116.setText("Modelo:");
+        jPanel1.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
 
-        jLabel38.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel38.setText("123456789123");
-        add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+        labelMarca1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelMarca1.setText("panasonic");
+        jPanel1.add(labelMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 80, -1));
 
-        jLabel39.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel39.setText("N° Serie:");
-        add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
+        labelSerie1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelSerie1.setText("123456789123");
+        jPanel1.add(labelSerie1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 80, -1));
 
-        jLabel40.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel40.setText("Cartuchos:");
-        add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        jLabel117.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel117.setText("N° Serie:");
+        jPanel1.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("SOPORTE TÉCNICO");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, 10));
+        jLabel118.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel118.setText("Cartuchos:");
+        jPanel1.add(jLabel118, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jRadioButton1.setText("SI");
-        add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+        jLabel119.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel119.setText("SOPORTE TÉCNICO");
+        jPanel1.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, 10));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("IMPRESORA");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, 20));
+        CartuchoSi1.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup2.add(CartuchoSi1);
+        CartuchoSi1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        CartuchoSi1.setText("SI");
+        jPanel1.add(CartuchoSi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
-        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jRadioButton2.setSelected(true);
-        jRadioButton2.setText("NO");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        jLabel120.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel120.setText("IMPRESORA");
+        jPanel1.add(jLabel120, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, 20));
+
+        CartuchoNo1.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup2.add(CartuchoNo1);
+        CartuchoNo1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        CartuchoNo1.setSelected(true);
+        CartuchoNo1.setText("NO");
+        CartuchoNo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                CartuchoNo1ActionPerformed(evt);
             }
         });
-        add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
+        jPanel1.add(CartuchoNo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("aakar", 1, 30)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel5.setText("A.M.");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 38));
+        jLabel121.setFont(new java.awt.Font("aakar", 1, 30)); // NOI18N
+        jLabel121.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel121.setText("A.M.");
+        jPanel1.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 38));
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel6.setText("Comerzializadores");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 120, -1));
+        jLabel122.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel122.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel122.setText("Comerzializadores");
+        jPanel1.add(jLabel122, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 120, -1));
 
-        jLabel41.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel41.setText("12313");
-        add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 60, 10));
+        labelSerieColor1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelSerieColor1.setText("12313");
+        jPanel1.add(labelSerieColor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 90, 10));
 
-        jLabel42.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel42.setText("Color:");
-        add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
+        jLabel123.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel123.setText("Color:");
+        jPanel1.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
-        jLabel43.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel43.setText("\"Señor cliente si en el plazo de 30 dias no recoge su equipo la empresa no se hace responsable\"");
-        add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        jLabel124.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel124.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel124.setText("\"Señor cliente si en el plazo de 30 dias no recoge su equipo la empresa no se hace responsable\"");
+        jPanel1.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
-        jLabel44.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel44.setText("TRABAJO A REALIZAR");
-        add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
+        jLabel125.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel125.setText("TRABAJO A REALIZAR");
+        jPanel1.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
-        jLabel7.setText("Raul Otero #101");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, 10));
+        jLabel126.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel126.setText("Raul Otero #101");
+        jPanel1.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, 10));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("\n\n\nOBSERVACIONES: ");
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDescripcion1.setColumns(20);
+        txtDescripcion1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        txtDescripcion1.setRows(5);
+        txtDescripcion1.setText("\n\n\nOBSERVACIONES: ");
+        jScrollPane3.setViewportView(txtDescripcion1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 470, 70));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 470, 70));
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
-        jLabel8.setText("Cel:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 30, 10));
+        jLabel127.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel127.setText("Cel:");
+        jPanel1.add(jLabel127, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 30, 10));
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
-        jLabel9.setText("71164598 - 73417476");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 110, -1));
+        jLabel128.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel128.setText("71164598 - 73417476");
+        jPanel1.add(jLabel128, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 110, -1));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel3.setText("TODA  ENTREGA  CON  ESTA  BOLETA");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+        jLabel129.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel129.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel129.setText("TODA  ENTREGA  CON  ESTA  BOLETA");
+        jPanel1.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel4.setText("CON  CARNET  DE  IDENTIDAD");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
+        jLabel130.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel130.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel130.setText("o CON  CARNET  DE  IDENTIDAD");
+        jPanel1.add(jLabel130, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
 
-        jLabel45.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel45.setText("123456");
-        add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 60, 10));
+        labelSerieNegro1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelSerieNegro1.setText("123456");
+        jPanel1.add(labelSerieNegro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 80, 10));
 
-        jLabel46.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel46.setText("Negro:");
-        add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
+        jLabel131.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel131.setText("Negro:");
+        jPanel1.add(jLabel131, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
-        jTextField1.setText("1000");
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 50, 20));
+        labelRepuesto1.setText("1000");
+        jPanel1.add(labelRepuesto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 50, 20));
 
-        jTextField2.setText("1000");
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 50, -1));
+        labelServicio1.setText("1000");
+        jPanel1.add(labelServicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 50, -1));
 
-        jLabel103.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel103.setText("Repuesto");
-        add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
+        jLabel132.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel132.setText("Repuesto");
+        jPanel1.add(jLabel132, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
 
-        jLabel104.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel104.setText("BS.");
-        add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
+        jLabel133.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel133.setText("BS.");
+        jPanel1.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 500, 350));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setPreferredSize(new java.awt.Dimension(766, 437));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel21.setText("Tel:");
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 20, 10));
+
+        jLabel54.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel54.setText("TECNICO");
+        jPanel2.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel23.setText("64-66285");
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 90, 10));
+
+        jLabel55.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel55.setText("Recibí Conforme");
+        jPanel2.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+
+        jLabel56.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel56.setText("N° Orden");
+        jPanel2.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
+
+        labelNro.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        labelNro.setText("0001");
+        jPanel2.add(labelNro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, -1));
+
+        jLabel58.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel58.setText("Fecha Recepción");
+        jPanel2.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+
+        jLabel59.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel59.setText("Costo");
+        jPanel2.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
+
+        jLabel60.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel60.setText("BS.");
+        jPanel2.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
+
+        jLabel61.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel61.setText("Costo");
+        jPanel2.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
+
+        jLabel62.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel62.setText("Servicio");
+        jPanel2.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
+
+        jLabel63.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel63.setText("Fecha Entrega Apróximada");
+        jPanel2.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
+
+        jLabel64.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel64.setText("CI:_______________");
+        jPanel2.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
+
+        jLabel65.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel65.setText("día/mes/año");
+        jPanel2.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
+
+        jLabel66.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel66.setText("día/mes/año");
+        jPanel2.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
+
+        jLabel67.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel67.setText("Hora");
+        jPanel2.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+
+        jLabel68.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel68.setText("Hora");
+        jPanel2.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
+
+        labelFechaRegistro.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelFechaRegistro.setText("05/06/2019");
+        jPanel2.add(labelFechaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 130, -1));
+
+        labelFechaEntrega.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelFechaEntrega.setText("05/06/2019");
+        jPanel2.add(labelFechaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 130, -1));
+
+        jLabel71.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel71.setText("DATOS  DEL  CLIENTE");
+        jPanel2.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+
+        jLabel72.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel72.setText("Nombre:");
+        jPanel2.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+
+        jLabel73.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel73.setText("CI:");
+        jPanel2.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 40, -1));
+
+        jLabel74.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel74.setText("Dirección:");
+        jPanel2.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+
+        jLabel75.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel75.setText("Celular:");
+        jPanel2.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
+
+        labelNombre.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelNombre.setText("Pablo Segovia Vargas");
+        jPanel2.add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 150, -1));
+
+        labelDireccion.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelDireccion.setText("Av Japon 93");
+        jPanel2.add(labelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 160, -1));
+
+        labelCi.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelCi.setText("12345678");
+        jPanel2.add(labelCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 80, -1));
+
+        labelCelular.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelCelular.setText("78670128");
+        jPanel2.add(labelCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 80, -1));
+
+        jLabel80.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel80.setText("DATOS  IMPRESORA");
+        jPanel2.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
+
+        labelModelo.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelModelo.setText("kx-mc6020");
+        jPanel2.add(labelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 170, 70, -1));
+
+        jLabel82.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel82.setText("Marca:");
+        jPanel2.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+
+        jLabel83.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel83.setText("Modelo:");
+        jPanel2.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+
+        labelMarca.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelMarca.setText("panasonic");
+        jPanel2.add(labelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 80, -1));
+
+        labelSerie.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelSerie.setText("123456789123");
+        jPanel2.add(labelSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 80, -1));
+
+        jLabel86.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel86.setText("N° Serie:");
+        jPanel2.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
+
+        jLabel87.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel87.setText("Cartuchos:");
+        jPanel2.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+
+        jLabel88.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel88.setText("SOPORTE TÉCNICO");
+        jPanel2.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, 10));
+
+        CartuchoSi.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(CartuchoSi);
+        CartuchoSi.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        CartuchoSi.setText("SI");
+        jPanel2.add(CartuchoSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+
+        jLabel89.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel89.setText("IMPRESORA");
+        jPanel2.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, 20));
+
+        CartuchoNo.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(CartuchoNo);
+        CartuchoNo.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        CartuchoNo.setSelected(true);
+        CartuchoNo.setText("NO");
+        CartuchoNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CartuchoNoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(CartuchoNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
+
+        jLabel90.setFont(new java.awt.Font("aakar", 1, 30)); // NOI18N
+        jLabel90.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel90.setText("A.M.");
+        jPanel2.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 38));
+
+        jLabel91.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel91.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel91.setText("Comerzializadores");
+        jPanel2.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 120, -1));
+
+        labelSerieColor.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelSerieColor.setText("12313");
+        jPanel2.add(labelSerieColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 90, 10));
+
+        jLabel93.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel93.setText("Color:");
+        jPanel2.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
+
+        jLabel94.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel94.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel94.setText("\"Señor cliente si en el plazo de 30 dias no recoge su equipo la empresa no se hace responsable\"");
+        jPanel2.add(jLabel94, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+
+        jLabel95.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel95.setText("TRABAJO A REALIZAR");
+        jPanel2.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
+
+        jLabel96.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel96.setText("Raul Otero #101");
+        jPanel2.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, 10));
+
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        txtDescripcion.setRows(5);
+        txtDescripcion.setText("\n\n\nOBSERVACIONES: ");
+        jScrollPane2.setViewportView(txtDescripcion);
+
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 470, 70));
+
+        jLabel97.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel97.setText("Cel:");
+        jPanel2.add(jLabel97, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 30, 10));
+
+        jLabel98.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel98.setText("71164598 - 73417476");
+        jPanel2.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 110, -1));
+
+        jLabel99.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel99.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel99.setText("TODA  ENTREGA  CON  ESTA  BOLETA");
+        jPanel2.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+
+        jLabel100.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel100.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel100.setText("o CON  CARNET  DE  IDENTIDAD");
+        jPanel2.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+
+        labelSerieNegro.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelSerieNegro.setText("123456");
+        jPanel2.add(labelSerieNegro, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 80, 10));
+
+        jLabel102.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel102.setText("Negro:");
+        jPanel2.add(jLabel102, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
+
+        labelRepuesto.setText("1000");
+        jPanel2.add(labelRepuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 50, 20));
+
+        labelServicio.setText("1000");
+        jPanel2.add(labelServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 50, -1));
+
+        jLabel105.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel105.setText("Repuesto");
+        jPanel2.add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
+
+        jLabel106.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel106.setText("BS.");
+        jPanel2.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 500, 350));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void CartuchoNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CartuchoNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_CartuchoNoActionPerformed
+
+    private void CartuchoNo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CartuchoNo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CartuchoNo1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton CartuchoNo;
+    private javax.swing.JRadioButton CartuchoNo1;
+    private javax.swing.JRadioButton CartuchoSi;
+    private javax.swing.JRadioButton CartuchoSi1;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel104;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel108;
+    private javax.swing.JLabel jLabel109;
+    private javax.swing.JLabel jLabel110;
+    private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel112;
+    private javax.swing.JLabel jLabel113;
+    private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel119;
+    private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel126;
+    private javax.swing.JLabel jLabel127;
+    private javax.swing.JLabel jLabel128;
+    private javax.swing.JLabel jLabel129;
+    private javax.swing.JLabel jLabel130;
+    private javax.swing.JLabel jLabel131;
+    private javax.swing.JLabel jLabel132;
+    private javax.swing.JLabel jLabel133;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel labelCelular;
+    private javax.swing.JLabel labelCelular1;
+    private javax.swing.JLabel labelCi;
+    private javax.swing.JLabel labelCi1;
+    private javax.swing.JLabel labelDireccion;
+    private javax.swing.JLabel labelDireccion1;
+    private javax.swing.JLabel labelFechaEntrega;
+    private javax.swing.JLabel labelFechaEntrega1;
+    private javax.swing.JLabel labelFechaRegistro;
+    private javax.swing.JLabel labelFechaRegistro1;
+    private javax.swing.JLabel labelMarca;
+    private javax.swing.JLabel labelMarca1;
+    private javax.swing.JLabel labelModelo;
+    private javax.swing.JLabel labelModelo1;
+    private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel labelNombre1;
+    private javax.swing.JLabel labelNro;
+    private javax.swing.JLabel labelNro1;
+    private javax.swing.JTextField labelRepuesto;
+    private javax.swing.JTextField labelRepuesto1;
+    private javax.swing.JLabel labelSerie;
+    private javax.swing.JLabel labelSerie1;
+    private javax.swing.JLabel labelSerieColor;
+    private javax.swing.JLabel labelSerieColor1;
+    private javax.swing.JLabel labelSerieNegro;
+    private javax.swing.JLabel labelSerieNegro1;
+    private javax.swing.JTextField labelServicio;
+    private javax.swing.JTextField labelServicio1;
+    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JTextArea txtDescripcion1;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public int print(Graphics graf, PageFormat pageFormat, int pageIndex) throws PrinterException {
-        if(pageIndex>0){
-          return NO_SUCH_PAGE;
+    public void fillForm(String id ,String fecha_recepcion,String fecha_entrega,
+                        String repuesto,String Servicio,
+                       String carnet,String nombre, String telefono,String direccion,String marca,
+                       String modelo,String serie,String cartucho,String color,String negro,String descripcion
+                       ){
+      
+      if(Integer.parseInt(id)<10){
+          id="000"+id;
       }
-        Graphics2D a= (Graphics2D) graf;
-        a.translate(pageFormat.getImageableX()+30, pageFormat.getImageableY()+30);
-        a.scale(1.0, 1.1);
-        this.printAll(graf);
-        return PAGE_EXISTS;
-    }
+      if(Integer.parseInt(id)>=10 && Integer.parseInt(id)<100){
+          id="00"+id;
+      }
+      if(Integer.parseInt(id)>=100 && Integer.parseInt(id)<1000){
+          id="0"+id;
+      }
+      this.labelNro.setText(id);
+      this.labelNro1.setText(id);
+      
+      this.labelFechaRegistro.setText(fecha_recepcion);
+      this.labelFechaRegistro1.setText(fecha_recepcion);
+      
+      this.labelFechaEntrega.setText(fecha_entrega);
+      this.labelFechaEntrega1.setText(fecha_entrega);
+      
+      this.labelCi.setText(carnet);
+      this.labelCi1.setText(carnet);
+      
+      this.labelNombre.setText(nombre);
+      this.labelNombre1.setText(nombre);
+      
+      this.labelCelular.setText(telefono);
+      this.labelCelular1.setText(telefono);
+      
+      this.labelDireccion.setText(direccion);
+      this.labelDireccion1.setText(direccion);
+      
+      this.labelMarca.setText(marca);
+      this.labelMarca1.setText(marca);
+      
+      this.labelModelo.setText(modelo);
+      this.labelModelo1.setText(modelo);
+      
+      this.labelSerie.setText(serie);
+      this.labelSerie1.setText(serie);
+      
+      if(cartucho.equals("SI")){
+          this.CartuchoSi.setSelected(true);
+          this.CartuchoSi.setSelected(true);
+          
+      }else{
+          this.CartuchoNo.setSelected(true);
+          this.CartuchoNo1.setSelected(true);
+          
+      }
+      
+      this.labelSerieColor.setText(color);
+      this.labelSerieColor1.setText(color);
+      
+      this.labelSerieNegro.setText(negro);
+      this.labelSerieNegro1.setText(negro);
+      
+      this.txtDescripcion.setText(descripcion);
+      this.txtDescripcion1.setText(descripcion);
+      
+      this.labelServicio.setText(Servicio);
+      this.labelServicio1.setText(Servicio);
+      
+      this.labelRepuesto.setText(repuesto);
+      this.labelRepuesto1.setText(repuesto);
+      
+  }
+  
 }

@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -104,6 +103,20 @@ public class ModeloRegistroServicio {
 
     }
 
+    public boolean savePrinter(String id, String marca, String modelo,
+            String serie, String cartucho, String color, String negro, String descripcion) {
+        String consulta = "INSERT INTO soporte_impresora "
+                + " (id_servicio,marca,modelo,numero_serie,cartuchos,color,negro,descripcion_trabajo) "
+                + " VALUES(" + id + ",'" + marca + "','" + modelo + "','" + serie + "','"
+                + cartucho + "','" + color + "','" + negro + "','" + descripcion + "')";
+
+        if (Conexion.ejecutarConsulta(consulta)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /*EXTRAER DATOS DE PORTATIL*/
     public String[] getPortatil(String _id_servicio) {
         try {
@@ -141,12 +154,50 @@ public class ModeloRegistroServicio {
         return null;
     }
 
-    public boolean updateLaptop(String _id_servicio,String marca,
-                                String modelo,String serie,String cargador,String serie_cargador,String trabajo) {
-        String consulta = "UPDATE soporte_portatil SET marca='"+marca+"',modelo='"+modelo+"',"
-                + "numero_serie='"+serie+"',cargador='"+cargador+"',"
-                + "numero_serie_cargador='"+serie_cargador+"',"
-                + "descripcion_trabajo ='"+trabajo+"' where id_servicio="+_id_servicio;
+    public String[] getPrinter(String id) {
+        try {
+            String[] printer = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
+            String consulta = "select date(S.fecha_registro),time(S.fecha_registro),date(S.fecha_entrega),time(S.fecha_entrega),"
+                    + " S.costo_repuesto,S.costo_servicio,C.carnetIdentidad,C.nombre,C.numeroTelefono,C.direccion,"
+                    + " I.marca,I.modelo,I.numero_serie,I.cartuchos,I.color,I.negro,I.descripcion_trabajo"
+                    + " from soporte_impresora I inner join numeroServicio S on I.id_servicio = S.id"
+                    + " inner join cliente C on C.id = S.id_cliente where I.id_servicio=" + id;
+            ResultSet resultado = Conexion.getDatos(consulta);
+            
+            if (resultado.next()) {
+                printer[0] = resultado.getString(1);//fecha registro
+                printer[1] = resultado.getString(2);//hora registro
+                printer[2] = resultado.getString(3);//fecha entrega
+                printer[3] = resultado.getString(4);//hora entrega
+                printer[4] = resultado.getString(5);//costo repuesto
+                printer[5] = resultado.getString(6);//costo servicio
+                printer[6] = resultado.getString(7);//carnet cliente
+                printer[7] = resultado.getString(8);//nombre
+                printer[8] = resultado.getString(9);//numero celular
+                printer[9] = resultado.getString(10);//direccion
+                printer[10] = resultado.getString(11);//marca
+                printer[11] = resultado.getString(12);//modelo
+                printer[12] = resultado.getString(13);//numero serie
+                printer[13] = resultado.getString(14);//cartucho
+                printer[14] = resultado.getString(15);//color
+                printer[15] = resultado.getString(16);//negro
+                printer[16] = resultado.getString(17);//descripcion
+                
+                
+            }
+            return printer;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloRegistroServicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public boolean updateLaptop(String _id_servicio, String marca,
+            String modelo, String serie, String cargador, String serie_cargador, String trabajo) {
+        String consulta = "UPDATE soporte_portatil SET marca='" + marca + "',modelo='" + modelo + "',"
+                + "numero_serie='" + serie + "',cargador='" + cargador + "',"
+                + "numero_serie_cargador='" + serie_cargador + "',"
+                + "descripcion_trabajo ='" + trabajo + "' where id_servicio=" + _id_servicio;
         if (Conexion.ejecutarConsulta(consulta)) {
             return true;
         } else {
@@ -154,4 +205,15 @@ public class ModeloRegistroServicio {
         }
     }
 
+    public boolean updatePrinter(String id, String marc, String mod, String ser, String cart, String col, String neg, String desc) {
+        String consulta = "Update soporte_impresora SET "
+                + " marca='" + marc + "',modelo='" + mod + "',numero_serie='" + ser + "', "
+                + " cartuchos='" + cart + "',color='" + col + "',negro='" + neg + "',descripcion_trabajo='" + desc + "' "
+                + " WHERE id_servicio =" + id;
+        if (Conexion.ejecutarConsulta(consulta)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -209,11 +209,11 @@ public class portatil extends javax.swing.JPanel{
         jPanel1.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel16.setText("día/mes/año");
+        jLabel16.setText("año/mes/dia");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel17.setText("día/mes/año");
+        jLabel17.setText("año/mes/dia");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
@@ -456,11 +456,11 @@ public class portatil extends javax.swing.JPanel{
         jPanel2.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel29.setText("día/mes/año");
+        jLabel29.setText("año/mes/dia");
         jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel30.setText("día/mes/año");
+        jLabel30.setText("año/mes/dia");
         jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
         jLabel31.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
