@@ -8,6 +8,7 @@ package controladores;
 import interfaces.InterfazPrincipal;
 import interfaces.RegistroCliente;
 import interfaces.RegistroImpresora;
+import interfaces.RegistroOtros;
 import interfaces.RegistroPc;
 import interfaces.RegistroPortatil;
 import interfaces.RegistroUsuario;
@@ -34,6 +35,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import modelos.ModeloClientes;
 import modelos.ModeloEquipos;
 import modelos.ModeloLogin;
@@ -78,6 +80,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
     RegistroPortatil registroPortatil;
     RegistroPc registroPc;
     RegistroImpresora registroImpresora;
+    RegistroOtros registroOtros;
     ModeloRegistroServicio modeloRegistroServicio;
 
     DateFormat df;
@@ -134,6 +137,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroPortatil = new RegistroPortatil();
         registroImpresora = new RegistroImpresora();
         registroPc = new RegistroPc();
+        registroOtros = new RegistroOtros();
         modeloRegistroServicio = new ModeloRegistroServicio();
     }
 
@@ -494,9 +498,16 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
     private void controladorEquipos() {
 
         this.panelEquipos.BtnImprimir().addActionListener((ActionEvent ae) -> {
-            interfazImpresion.setImpresion(panelOtros);
-
-            interfazImpresion.setVisible(true);
+             int dialogoResultado = JOptionPane.showConfirmDialog(null, "¿Esta segur@ de que este equipo ya se entrego?", "Pregunta", JOptionPane.YES_NO_OPTION);
+                if (dialogoResultado == JOptionPane.YES_OPTION) {
+                    int id = Integer.parseInt(panelEquipos.TablaEquipos().getValueAt(panelEquipos.TablaEquipos().getSelectedRow(),0).toString());
+                    if (modeloEquipos.entregarEquipo(id)) {
+                        
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El equipo no se pudo modificar");
+                    }
+                    cargarDatosEquipos(panelEquipos.TxtBusqueda().getText());
+                }
         });
         this.panelEquipos.getComboEstado().addActionListener((ActionEvent ae) -> {
             cargarDatosEquipos(panelEquipos.TxtBusqueda().getText());
@@ -533,9 +544,16 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         if (panelEquipos.getImpresora().isSelected()) {
             tipo = "impresora";
         }
-        if (panelEquipos.getComputadora().isSelected()) {
+        if (panelEquipos.getPc().isSelected()) {
             tipo = "pc";
         }
+        if (panelEquipos.getPortatil().isSelected()) {
+            tipo = "portatil";
+        }
+        if (panelEquipos.getOtro().isSelected()) {
+            tipo = "otros";
+        }
+        
         return tipo;
     }
 
@@ -567,6 +585,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
                 Pcs();
             }
             if (_tipo.equals("otros")) {
+                Others();
             }
         } else {
             System.out.println("Error al registrar");
@@ -593,7 +612,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroPortatil.getTxtMarca().setText("");
         registroPortatil.getTxtModelo().setText("");
         registroPortatil.getTxtSeriePc().setText("");
-        registroPortatil.getCargadorNO().isSelected();
+        registroPortatil.getCargadorNO().setSelected(true);
 
         registroPortatil.getSerieCargador().setText("");
         registroPortatil.getTxtTrabajo().setText("\n\nOBSERVACIONES:");
@@ -719,6 +738,24 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroImpresora.getTxtNumeroOrden().setText(datosServicio[6]);
         registroImpresora.getBtnGuardar().setVisible(true);
         registroImpresora.setVisible(true);
+        
+        
+        registroImpresora.getFechaEntrega().setDate(null);
+        registroImpresora.getHoraEntrega().setText("00:00");
+        registroImpresora.getTxtCostoRepuesto().setText("0");
+        registroImpresora.getTxtCostoServicio().setText("0");
+        registroImpresora.getTxtMarca().setText("");
+        registroImpresora.getTxtModelo().setText("");
+        registroImpresora.getTxtNroSerie().setText("");
+        
+        registroImpresora.getCartuchoNO().setSelected(true);
+        
+        registroImpresora.getTxtColor().setText("");
+        registroImpresora.getTxtNegro().setText("");
+        registroImpresora.getTxtTrabajo().setText("\n\nOBSERVACIONES:");
+        
+
+            
         registroImpresora.getBtnGuardar().addActionListener(new ActionListener() {
 
             @Override
@@ -832,6 +869,25 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroPc.getTxtNumeroOrden().setText(datosServicio[6]);
         registroPc.getBtnGuardar().setVisible(true);
         registroPc.setVisible(true);
+        /*LIMPIANDO*/
+        registroPc.getTxtCostoRepuesto().setText("0");
+        registroPc.getTxtCostoServicio().setText("0");
+        registroPc.getTxtCables().setText("");
+        registroPc.getTxtDiscoDuro().setText("");
+        registroPc.getTxtHoraEntrega().setText("00:00");
+        registroPc.getTxtMemoriaRam().setText("");
+        registroPc.getTxtProcesador().setText("");
+        registroPc.getTxtQuemador().setText("");
+        registroPc.getTxtSerieCables().setText("");
+        registroPc.getTxtSerieMonitor().setText("");
+        registroPc.getMonitorNO().setSelected(true);
+        registroPc.getTxtTargetaMadre().setText("");
+        registroPc.getTxtTarjetaRed().setText("");
+        registroPc.getTxtTarjetaSonido().setText("");
+        registroPc.getTxtTarjetaVideo().setText("");
+        registroPc.getTxtTarjetaWifi().setText("");
+        registroPc.getTxtTrabajo().setText("\n\nOBSERVACIONES:");
+        
         registroPc.getBtnGuardar().addActionListener(new ActionListener() {
 
             @Override
@@ -895,7 +951,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
                                 registroPc.getTxtCables().getText(),
                                 registroPc.getTxtSerieCables().getText(),
                                 registroPc.getTxtTrabajo().getText())) {
-                    
+
                     loadDesktopData(registroPc.getTxtNumeroOrden().getText());
                 } else {
                     System.out.println("Error al registrar");
@@ -928,7 +984,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
     }
 
     private void loadDesktopData(String id) {
-        String desktop[]= modeloRegistroServicio.getDesktop(id);
+        String desktop[] = modeloRegistroServicio.getDesktop(id);
         registroPc.getBtnGuardar().setVisible(false);
         registroPc.getFechaRecepcion().setDate(parseDate(desktop[0]));
         registroPc.getTxtHoraRecepcion().setText(desktop[1]);
@@ -949,17 +1005,110 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroPc.getTxtTarjetaWifi().setText(desktop[16]);
         registroPc.getTxtTarjetaRed().setText(desktop[17]);
         registroPc.getTxtQuemador().setText(desktop[18]);
-        if(desktop[19].equals("SI")){
-            registroPc.getMonitorSI().setSelected(true);  
-        }else{
+        if (desktop[19].equals("SI")) {
+            registroPc.getMonitorSI().setSelected(true);
+        } else {
             registroPc.getMonitorNO().setSelected(true);
         }
         registroPc.getTxtSerieMonitor().setText(desktop[20]);
         registroPc.getTxtCables().setText(desktop[21]);
         registroPc.getTxtSerieCables().setText(desktop[22]);
         registroPc.getTxtTrabajo().setText(desktop[23]);
-        
-        
+
+    }
+
+    private void Others() {
+        String datosServicio[] = modeloRegistroServicio.getUltimoRegistro();
+
+        registroOtros.getFechaRecepcion().setDate(parseDate(datosServicio[0]));
+        registroOtros.getHoraRecepcion().setText(datosServicio[1]);
+        registroOtros.getTxtCarnet().setText(datosServicio[2]);
+        registroOtros.getTxtNombre().setText(datosServicio[3]);
+        registroOtros.getTxtDireccion().setText(datosServicio[4]);
+        registroOtros.getTxtCelular().setText(datosServicio[5]);
+        registroOtros.getNumeroOrden().setText(datosServicio[6]);
+        registroOtros.getBtnGuardar().setVisible(true);
+        registroOtros.setVisible(true);
+        /*LIMPIAR*/
+        registroOtros.getTxtTrabajo().setText("\n\nOBSERVACIONES:");
+        registroOtros.getFechaEntrega().setDate(null);
+        registroOtros.getHoraEntrega().setText("00:00");
+        registroOtros.getTxtServicio().setText("0");
+        registroOtros.getTxtRepuesto().setText("0");
+        registroOtros.getBtnGuardar().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (modeloRegistroServicio.modificarServicio(registroOtros.getNumeroOrden().getText(),
+                        df.format(registroOtros.getFechaRecepcion().getDate()) + " "
+                        + registroOtros.getHoraRecepcion().getText(),
+                        df.format(registroOtros.getFechaEntrega().getDate()) + " "
+                        + registroOtros.getHoraEntrega().getText(),
+                        registroOtros.getTxtRepuesto().getText(),
+                        registroOtros.getTxtServicio().getText())
+                        && modeloRegistroServicio.saveOther(registroOtros.getNumeroOrden().getText(),
+                                registroOtros.getTxtTrabajo().getText())) {
+                    System.out.println("Registro Correcto");
+                    loadOtherData(registroOtros.getNumeroOrden().getText());
+                } else {
+                    System.out.println("Error al registrar");
+                }
+            }
+        });
+        registroOtros.getBtnModificar().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (modeloRegistroServicio.modificarServicio(registroOtros.getNumeroOrden().getText(),
+                        df.format(registroOtros.getFechaRecepcion().getDate()) + " "
+                        + registroOtros.getHoraRecepcion().getText(),
+                        df.format(registroOtros.getFechaEntrega().getDate()) + " "
+                        + registroOtros.getHoraEntrega().getText(),
+                        registroOtros.getTxtRepuesto().getText(),
+                        registroOtros.getTxtServicio().getText())
+                        && modeloRegistroServicio.updateOther(registroOtros.getNumeroOrden().getText(),
+                                registroOtros.getTxtTrabajo().getText())) {
+                
+                    loadOtherData(registroOtros.getNumeroOrden().getText());
+                } else {
+                    System.out.println("Error al registrar");
+                }
+            }
+        });
+        registroOtros.getBtnImprimir().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                String[] other = modeloRegistroServicio.getOther(registroOtros.getNumeroOrden().getText());
+                panelOtros.fillForm(
+                        registroOtros.getNumeroOrden().getText(),
+                        other[0] + " " + other[1],
+                        other[2] + " " + other[3],
+                        other[4], other[5],
+                        other[6], other[7],
+                        other[8], other[9],
+                        other[10]);
+                interfazImpresion.setImpresion(panelOtros);
+                interfazImpresion.setVisible(true);
+            }
+        });
+    }
+
+    private void loadOtherData(String id) {
+        String[] other = modeloRegistroServicio.getOther(id);
+        registroOtros.getBtnGuardar().setVisible(false);
+        registroOtros.getFechaRecepcion().setDate(parseDate(other[0]));
+        registroOtros.getHoraRecepcion().setText(other[1]);
+        registroOtros.getFechaEntrega().setDate(parseDate(other[2]));
+        registroOtros.getHoraEntrega().setText(other[3]);
+        registroOtros.getTxtRepuesto().setText(other[4]);
+        registroOtros.getTxtServicio().setText(other[5]);
+        registroOtros.getTxtCarnet().setText(other[6]);
+        registroOtros.getTxtNombre().setText(other[7]);
+        registroOtros.getTxtCelular().setText(other[8]);
+        registroOtros.getTxtDireccion().setText(other[9]);
+        registroOtros.getTxtTrabajo().setText(other[10]);
+        registroOtros.getNumeroOrden().setText(id);
     }
 
     private Date parseDate(String fecha) {

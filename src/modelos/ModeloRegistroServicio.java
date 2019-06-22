@@ -132,7 +132,18 @@ public class ModeloRegistroServicio {
         }
     }
 
+    public boolean saveOther(String id, String descripcion) {
+        String consulta = "Insert into soporte_otros(id_servicio,descripcion_trabajo)"
+                + "VALUES(" + id + ",'" + descripcion + "');";
+
+        if (Conexion.ejecutarConsulta(consulta)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     /*EXTRAER DATOS DE PORTATIL*/
+
     public String[] getPortatil(String _id_servicio) {
         try {
             String[] portatil = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
@@ -254,6 +265,38 @@ public class ModeloRegistroServicio {
         return null;
     }
 
+    public String[] getOther(String id) {
+        try {
+            String[] other = {"", "", "", "", "", "", "", "", "", "", ""};
+            String consulta = ""
+                    + " select date(S.fecha_registro),time(S.fecha_registro),date(S.fecha_entrega),time(S.fecha_entrega), "
+                    + " S.costo_repuesto,S.costo_servicio,C.carnetIdentidad,C.nombre,C.numeroTelefono,C.direccion, "
+                    + " O.descripcion_trabajo "
+                    + " from soporte_otros O inner join numeroServicio S on O.id_servicio = S.id"
+                    + " inner join cliente C on C.id = S.id_cliente where O.id_servicio=" + id;
+            ResultSet resultado = Conexion.getDatos(consulta);
+
+            if (resultado.next()) {
+                other[0] = resultado.getString(1);//fecha registro
+                other[1] = resultado.getString(2);//hora registro
+                other[2] = resultado.getString(3);//fecha entrega
+                other[3] = resultado.getString(4);//hora entrega
+                other[4] = resultado.getString(5);//costo repuesto
+                other[5] = resultado.getString(6);//costo servicio
+                other[6] = resultado.getString(7);//carnet cliente
+                other[7] = resultado.getString(8);//nombre
+                other[8] = resultado.getString(9);//numero celular
+                other[9] = resultado.getString(10);//direccion
+                other[10] = resultado.getString(11);//Trabajo
+
+            }
+            return other;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloRegistroServicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public boolean updateLaptop(String _id_servicio, String marca,
             String modelo, String serie, String cargador, String serie_cargador, String trabajo) {
         String consulta = "UPDATE soporte_portatil SET marca='" + marca + "',modelo='" + modelo + "',"
@@ -282,10 +325,21 @@ public class ModeloRegistroServicio {
     public boolean updateDesktop(String id, String tm, String proc, String ram, String dduro, String video, String sonido,
             String wifi, String red, String quem, String monitor, String nsm, String cable, String nsc, String desc) {
         String consulta = "UPDATE soporte_pc "
-                + " SET tarjeta_madre='"+tm+"',procesador='"+proc+"',ram='"+ram+"',disco_duro='"+dduro+"',"
-                + " tarjeta_video='"+video+"',tarjeta_sonido='"+sonido+"'"
-                + ",tarjeta_wifi='"+wifi+"',tarjeta_red='"+red+"',quemador='"+quem+"',monitor='"+monitor+"',numero_serie_monitor='"+nsm+"',"
-                + " cable='"+cable+"',numero_serie_cable='"+nsc+"',trabajo_realizar='"+desc+"' "
+                + " SET tarjeta_madre='" + tm + "',procesador='" + proc + "',ram='" + ram + "',disco_duro='" + dduro + "',"
+                + " tarjeta_video='" + video + "',tarjeta_sonido='" + sonido + "'"
+                + ",tarjeta_wifi='" + wifi + "',tarjeta_red='" + red + "',quemador='" + quem + "',monitor='" + monitor + "',numero_serie_monitor='" + nsm + "',"
+                + " cable='" + cable + "',numero_serie_cable='" + nsc + "',trabajo_realizar='" + desc + "' "
+                + " WHERE id_servicio=" + id;
+        if (Conexion.ejecutarConsulta(consulta)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean updateOther(String id, String desc) {
+        String consulta = "UPDATE soporte_otros"
+                + " SET descripcion_trabajo='"+desc+"'"
                 + " WHERE id_servicio=" + id;
         if (Conexion.ejecutarConsulta(consulta)) {
             return true;

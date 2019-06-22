@@ -968,86 +968,94 @@ public class escritorio extends javax.swing.JPanel {
     private javax.swing.JTextArea txtTrabajo1;
     // End of variables declaration//GEN-END:variables
 
-    public void fillData(String id,String registro,String entrega,String repuesto,String servicio,
-                        String carnet,String nombre, String celular,String direccion,
-                        String madre,String procesador,String ram,String dduro,String video,
-                        String sonido,String wifi,String red,String quemador,String monitor,
-                        String serieMonitor,String cables,String serieCables,String desc){
-        
+    public void fillData(String id, String registro, String entrega, String repuesto, String servicio,
+            String carnet, String nombre, String celular, String direccion,
+            String madre, String procesador, String ram, String dduro, String video,
+            String sonido, String wifi, String red, String quemador, String monitor,
+            String serieMonitor, String cables, String serieCables, String desc) {
+
+        if (Integer.parseInt(id) < 10) {
+            id = "000" + id;
+        }
+        if (Integer.parseInt(id) >= 10 && Integer.parseInt(id) < 100) {
+            id = "00" + id;
+        }
+        if (Integer.parseInt(id) >= 100 && Integer.parseInt(id) < 1000) {
+            id = "0" + id;
+        }
         this.labelNroOrden.setText(id);
         this.labelNroOrden1.setText(id);
-        
+
         this.labelFechaEntrega.setText(entrega);
         this.labelFechaEntrega1.setText(entrega);
-        
+
         this.labelFechaRegistro.setText(registro);
         this.labelFechaRegistro1.setText(registro);
-        
+
         this.txtRepuesto.setText(repuesto);
         this.txtRepuesto1.setText(repuesto);
-        
+
         this.txtServicio.setText(servicio);
         this.txtServicio1.setText(servicio);
-        
+
         this.labelCarnet.setText(carnet);
         this.labelCarnet1.setText(carnet);
-        
+
         this.labelNombre.setText(nombre);
         this.labelNombre1.setText(nombre);
-        
+
         this.labelCelular.setText(celular);
         this.labelCelular1.setText(celular);
-        
+
         this.labelDireccion.setText(direccion);
         this.labelDireccion1.setText(direccion);
-        
+
         this.labelTarjetaMadre.setText(madre);
         this.labelTarjetaMadre1.setText(madre);
-        
+
         this.labelProcesador.setText(procesador);
         this.labelProcesador1.setText(procesador);
-        
+
         this.labelRam.setText(ram);
         this.labelRam1.setText(ram);
-        
+
         this.labelDiscoDuro.setText(dduro);
         this.labelDiscoDuro1.setText(dduro);
-        
+
         this.labelTarjetaVideo.setText(video);
         this.labelTarjetaVideo1.setText(video);
-         
+
         this.labelTarjetaSonido.setText(sonido);
         this.labelTarjetaSonido1.setText(sonido);
-        
+
         this.labelTarjetaWifi.setText(wifi);
         this.labelTarjetaWifi1.setText(wifi);
-        
+
         this.labelTarjetaRed.setText(red);
         this.labelTarjetaRed1.setText(red);
-        
+
         this.labelQuemado.setText(quemador);
         this.labelQuemado1.setText(quemador);
-        
-        if(monitor.equals("SI")){
+
+        if (monitor.equals("SI")) {
             this.MonitorSi.setSelected(true);
             this.MonitorSi1.setSelected(true);
-            
-        }else{
+
+        } else {
             this.MonitorNo.setSelected(true);
             this.MonitorNo1.setSelected(true);
         }
         this.labelSerieMonitor.setText(serieMonitor);
         this.labelSerieMonitor1.setText(serieMonitor);
-        
+
         this.labelCables.setText(cables);
         this.labelCables1.setText(cables);
-        
+
         this.labelSerieCables.setText(serieCables);
         this.labelSerieCables1.setText(serieCables);
-        
+
         this.txtTrabajo.setText(desc);
         this.txtTrabajo1.setText(desc);
-        
-        
+
     }
 }

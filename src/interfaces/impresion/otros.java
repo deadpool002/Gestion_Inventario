@@ -5,19 +5,12 @@
  */
 package interfaces.impresion;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import static java.awt.print.Printable.NO_SUCH_PAGE;
-import static java.awt.print.Printable.PAGE_EXISTS;
-import java.awt.print.PrinterException;
 
 /**
  *
  * @author pablo
  */
-public class otros extends javax.swing.JPanel implements Printable {
+public class otros extends javax.swing.JPanel {
 
     /**
      * Creates new form impresora
@@ -38,13 +31,13 @@ public class otros extends javax.swing.JPanel implements Printable {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
+        labelNombre = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
+        labelDireccion = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
+        labelCarnet = new javax.swing.JLabel();
+        labelNroOrden = new javax.swing.JLabel();
+        labelCelular = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
@@ -61,20 +54,20 @@ public class otros extends javax.swing.JPanel implements Printable {
         jLabel7 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtTrabajo = new javax.swing.JTextArea();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        labelRegistro = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        labelEntrega = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtRepuesto = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtServicio = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel103 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -83,51 +76,51 @@ public class otros extends javax.swing.JPanel implements Printable {
         jLabel47 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        labelNombre1 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
+        labelDireccion1 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        labelCarnet1 = new javax.swing.JLabel();
+        labelNroOrden1 = new javax.swing.JLabel();
+        labelCelular1 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtTrabajo1 = new javax.swing.JTextArea();
+        jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
+        labelRegistro1 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
+        labelEntrega1 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
+        txtRepuesto1 = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
+        txtServicio1 = new javax.swing.JTextField();
         jLabel60 = new javax.swing.JLabel();
+        jLabel105 = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jLabel106 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel68 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
-        jLabel70 = new javax.swing.JLabel();
-        jLabel71 = new javax.swing.JLabel();
-        jLabel72 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel73 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel74 = new javax.swing.JLabel();
-        jLabel105 = new javax.swing.JLabel();
-        jLabel75 = new javax.swing.JLabel();
-        jLabel76 = new javax.swing.JLabel();
-        jLabel106 = new javax.swing.JLabel();
-        jLabel77 = new javax.swing.JLabel();
-        jLabel78 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(521, 792));
@@ -135,703 +128,393 @@ public class otros extends javax.swing.JPanel implements Printable {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setPreferredSize(new java.awt.Dimension(766, 437));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
         jLabel11.setText("64-66285");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 90, -1));
 
-        jLabel29.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel29.setText("Pablo Segovia Vargas");
+        labelNombre.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelNombre.setText("Pablo Segovia Vargas");
+        jPanel1.add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 140, -1));
 
         jLabel48.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel48.setText("Recibí Conforme");
+        jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
 
-        jLabel30.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel30.setText("Av Japon 93");
+        labelDireccion.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelDireccion.setText("Av Japon 93");
+        jPanel1.add(labelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 90, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setText("N° Orden");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
-        jLabel31.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel31.setText("12345678");
+        labelCarnet.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelCarnet.setText("12345678");
+        jPanel1.add(labelCarnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 100, -1));
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel13.setText("0001");
+        labelNroOrden.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        labelNroOrden.setText("0001");
+        jPanel1.add(labelNroOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 64, -1));
 
-        jLabel32.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel32.setText("78670128");
+        labelCelular.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelCelular.setText("78670128");
+        jPanel1.add(labelCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 100, -1));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jLabel14.setText("Fecha Recepción");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("SOPORTE TÉCNICO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, 10));
 
         jLabel49.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel49.setText("Costo");
+        jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("OTROS");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, 20));
 
         jLabel50.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel50.setText("BS.");
+        jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
 
         jLabel51.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel51.setText("Costo");
+        jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("aakar", 1, 30)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 153));
         jLabel5.setText("A.M.");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 38));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 102));
         jLabel6.setText("Comerzializadores");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 120, -1));
 
         jLabel52.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel52.setText("Servicio");
+        jPanel1.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
 
         jLabel43.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 0, 0));
         jLabel43.setText("\"Señor cliente si en el plazo de 30 dias no recoge su equipo la empresa no se hace responsable\"");
+        jPanel1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jLabel15.setText("Fecha Entrega Apróximada");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
 
         jLabel44.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel44.setText("TRABAJO A REALIZAR");
+        jPanel1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
 
         jLabel53.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel53.setText("CI:_______________");
+        jPanel1.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
         jLabel7.setText("Raul Otero #101");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, -1));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel16.setText("día/mes/año");
+        jLabel16.setText("año/mes/dia");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("\n\n\n\n\n\n\n\nOBSERVACIONES: ");
-        jScrollPane1.setViewportView(jTextArea1);
+        txtTrabajo.setColumns(20);
+        txtTrabajo.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        txtTrabajo.setRows(5);
+        txtTrabajo.setText("\n\n\n\n\n\n\n\nOBSERVACIONES: ");
+        jScrollPane1.setViewportView(txtTrabajo);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 470, 120));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel17.setText("día/mes/año");
+        jLabel17.setText("año/mes/dia");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
         jLabel18.setText("Hora");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
         jLabel8.setText("Cel:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 30, -1));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
         jLabel19.setText("Hora");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
         jLabel9.setText("71164598 - 73417476");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 110, -1));
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel20.setText("05/06/2019");
+        labelRegistro.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelRegistro.setText("05/06/2019");
+        jPanel1.add(labelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 140, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("TODA  ENTREGA  CON  ESTA  BOLETA");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel22.setText("05/06/2019");
+        labelEntrega.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelEntrega.setText("05/06/2019");
+        jPanel1.add(labelEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 140, -1));
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel24.setText("DATOS  DEL  CLIENTE");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel4.setText("CON  CARNET  DE  IDENTIDAD");
+        jLabel4.setText("o CON  CARNET  DE  IDENTIDAD");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
 
-        jTextField1.setText("1000");
+        txtRepuesto.setText("1000");
+        jPanel1.add(txtRepuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 50, 20));
 
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jLabel25.setText("Nombre:");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
-        jTextField2.setText("1000");
+        txtServicio.setText("1000");
+        jPanel1.add(txtServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 50, -1));
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jLabel26.setText("CI:");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 40, -1));
 
         jLabel103.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel103.setText("Repuesto");
+        jPanel1.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
         jLabel10.setText("Tel:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 20, -1));
 
         jLabel27.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jLabel27.setText("Dirección:");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jLabel104.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel104.setText("BS.");
+        jPanel1.add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
 
         jLabel47.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel47.setText("TECNICO");
+        jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
         jLabel28.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jLabel28.setText("Celular:");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel5))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel2)))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel4)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel14)
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel15))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel16)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel18)
-                        .addGap(81, 81, 81)
-                        .addComponent(jLabel17)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel19))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel20)
-                        .addGap(114, 114, 114)
-                        .addComponent(jLabel22))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jLabel24))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel25)
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel29)
-                        .addGap(123, 123, 123)
-                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel31))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel27)
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel30)
-                        .addGap(142, 142, 142)
-                        .addComponent(jLabel28)
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel32))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(jLabel44))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel47)
-                        .addGap(111, 111, 111)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel53)
-                            .addComponent(jLabel48))
-                        .addGap(9, 9, 9)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel103)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel49)))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel104))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel52)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel51)))
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel50)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel43)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel8))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel9))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel6)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel4)
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13))))
-                .addComponent(jLabel7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel19))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel22))
-                .addComponent(jLabel24)
-                .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel31))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel28)
-                    .addComponent(jLabel32))
-                .addGap(10, 10, 10)
-                .addComponent(jLabel44)
-                .addGap(7, 7, 7)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel47)
-                    .addComponent(jLabel48)
-                    .addComponent(jLabel49)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel104))
-                    .addComponent(jLabel51)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel50))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel53)
-                            .addComponent(jLabel103)
-                            .addComponent(jLabel52))))
-                .addGap(7, 7, 7)
-                .addComponent(jLabel43))
-        );
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setPreferredSize(new java.awt.Dimension(766, 437));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel21.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
-        jLabel21.setText("64-66285");
+        jLabel13.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel13.setText("64-66285");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 90, -1));
 
-        jLabel33.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel33.setText("Pablo Segovia Vargas");
+        labelNombre1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelNombre1.setText("Pablo Segovia Vargas");
+        jPanel2.add(labelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 140, -1));
 
         jLabel54.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel54.setText("Recibí Conforme");
+        jPanel2.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
 
-        jLabel34.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel34.setText("Av Japon 93");
+        labelDireccion1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelDireccion1.setText("Av Japon 93");
+        jPanel2.add(labelDireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 90, -1));
 
-        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel23.setText("N° Orden");
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setText("N° Orden");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
-        jLabel35.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel35.setText("12345678");
+        labelCarnet1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelCarnet1.setText("12345678");
+        jPanel2.add(labelCarnet1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 100, -1));
 
-        jLabel36.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel36.setText("0001");
+        labelNroOrden1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        labelNroOrden1.setText("0001");
+        jPanel2.add(labelNroOrden1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 64, -1));
 
-        jLabel37.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel37.setText("78670128");
+        labelCelular1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelCelular1.setText("78670128");
+        jPanel2.add(labelCelular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 100, -1));
 
-        jLabel38.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel38.setText("Fecha Recepción");
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel21.setText("Fecha Recepción");
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
 
-        jLabel39.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel39.setText("SOPORTE TÉCNICO");
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel22.setText("SOPORTE TÉCNICO");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, 10));
 
         jLabel55.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel55.setText("Costo");
+        jPanel2.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
 
-        jLabel40.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel40.setText("OTROS");
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel23.setText("OTROS");
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, 20));
 
         jLabel56.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel56.setText("BS.");
+        jPanel2.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
 
         jLabel57.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel57.setText("Costo");
+        jPanel2.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
 
-        jLabel41.setFont(new java.awt.Font("aakar", 1, 30)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel41.setText("A.M.");
+        jLabel29.setFont(new java.awt.Font("aakar", 1, 30)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel29.setText("A.M.");
+        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 38));
 
-        jLabel42.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel42.setText("Comerzializadores");
+        jLabel30.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel30.setText("Comerzializadores");
+        jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 120, -1));
 
         jLabel58.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel58.setText("Servicio");
+        jPanel2.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
 
         jLabel45.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(255, 0, 0));
         jLabel45.setText("\"Señor cliente si en el plazo de 30 dias no recoge su equipo la empresa no se hace responsable\"");
+        jPanel2.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
-        jLabel46.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel46.setText("Fecha Entrega Apróximada");
+        jLabel31.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel31.setText("Fecha Entrega Apróximada");
+        jPanel2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
+
+        jLabel46.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel46.setText("TRABAJO A REALIZAR");
+        jPanel2.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
 
         jLabel59.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel59.setText("TRABAJO A REALIZAR");
+        jLabel59.setText("CI:_______________");
+        jPanel2.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
 
-        jLabel60.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel60.setText("CI:_______________");
+        jLabel32.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel32.setText("Raul Otero #101");
+        jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, -1));
 
-        jLabel61.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
-        jLabel61.setText("Raul Otero #101");
+        jLabel33.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel33.setText("año/mes/dia");
+        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
-        jLabel62.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel62.setText("día/mes/año");
+        txtTrabajo1.setColumns(20);
+        txtTrabajo1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        txtTrabajo1.setRows(5);
+        txtTrabajo1.setText("\n\n\n\n\n\n\n\nOBSERVACIONES: ");
+        jScrollPane2.setViewportView(txtTrabajo1);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jTextArea2.setRows(5);
-        jTextArea2.setText("\n\n\n\n\n\n\n\nOBSERVACIONES: ");
-        jScrollPane2.setViewportView(jTextArea2);
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 470, 120));
 
-        jLabel63.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel63.setText("día/mes/año");
+        jLabel34.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel34.setText("año/mes/dia");
+        jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
-        jLabel64.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel64.setText("Hora");
+        jLabel35.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel35.setText("Hora");
+        jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
-        jLabel65.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
-        jLabel65.setText("Cel:");
+        jLabel36.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel36.setText("Cel:");
+        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 30, -1));
 
-        jLabel66.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel66.setText("Hora");
+        jLabel37.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel37.setText("Hora");
+        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
-        jLabel67.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
-        jLabel67.setText("71164598 - 73417476");
+        jLabel38.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel38.setText("71164598 - 73417476");
+        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 110, -1));
 
-        jLabel68.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel68.setText("05/06/2019");
+        labelRegistro1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelRegistro1.setText("05/06/2019");
+        jPanel2.add(labelRegistro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 140, -1));
 
-        jLabel69.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel69.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel69.setText("TODA  ENTREGA  CON  ESTA  BOLETA");
+        jLabel39.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel39.setText("TODA  ENTREGA  CON  ESTA  BOLETA");
+        jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
-        jLabel70.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        jLabel70.setText("05/06/2019");
+        labelEntrega1.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        labelEntrega1.setText("05/06/2019");
+        jPanel2.add(labelEntrega1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 140, -1));
 
-        jLabel71.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel71.setText("DATOS  DEL  CLIENTE");
+        jLabel40.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel40.setText("DATOS  DEL  CLIENTE");
+        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
-        jLabel72.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel72.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel72.setText("CON  CARNET  DE  IDENTIDAD");
+        jLabel41.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel41.setText("o CON  CARNET  DE  IDENTIDAD");
+        jPanel2.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
 
-        jTextField3.setText("1000");
+        txtRepuesto1.setText("1000");
+        jPanel2.add(txtRepuesto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 50, 20));
 
-        jLabel73.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel73.setText("Nombre:");
+        jLabel42.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel42.setText("Nombre:");
+        jPanel2.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
-        jTextField4.setText("1000");
+        txtServicio1.setText("1000");
+        jPanel2.add(txtServicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 50, -1));
 
-        jLabel74.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel74.setText("CI:");
+        jLabel60.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel60.setText("CI:");
+        jPanel2.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 40, -1));
 
         jLabel105.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel105.setText("Repuesto");
+        jPanel2.add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
 
-        jLabel75.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
-        jLabel75.setText("Tel:");
+        jLabel61.setFont(new java.awt.Font("Dialog", 2, 8)); // NOI18N
+        jLabel61.setText("Tel:");
+        jPanel2.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 20, -1));
 
-        jLabel76.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel76.setText("Dirección:");
+        jLabel62.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel62.setText("Dirección:");
+        jPanel2.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jLabel106.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel106.setText("BS.");
+        jPanel2.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
 
-        jLabel77.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel77.setText("TECNICO");
+        jLabel63.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel63.setText("TECNICO");
+        jPanel2.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
-        jLabel78.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jLabel78.setText("Celular:");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel41))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel39)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel40)))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel69)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel72)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel23)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel38)
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel46))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel62)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel64)
-                        .addGap(81, 81, 81)
-                        .addComponent(jLabel63)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel66))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel68)
-                        .addGap(114, 114, 114)
-                        .addComponent(jLabel70))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jLabel71))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel73)
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel33)
-                        .addGap(123, 123, 123)
-                        .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel35))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel76)
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel34)
-                        .addGap(142, 142, 142)
-                        .addComponent(jLabel78)
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel37))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(jLabel59))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel77)
-                        .addGap(111, 111, 111)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel60)
-                            .addComponent(jLabel54))
-                        .addGap(9, 9, 9)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel105)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel55)))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel106))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel58)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel57)))
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel56)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel45)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel65))
-                            .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel67))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel42)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel75)
-                            .addComponent(jLabel21)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel69)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel72)
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel36))))
-                .addComponent(jLabel61)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel38)
-                    .addComponent(jLabel46))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel62)
-                    .addComponent(jLabel64)
-                    .addComponent(jLabel63)
-                    .addComponent(jLabel66))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel68)
-                    .addComponent(jLabel70))
-                .addComponent(jLabel71)
-                .addGap(7, 7, 7)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel73)
-                    .addComponent(jLabel33)
-                    .addComponent(jLabel74)
-                    .addComponent(jLabel35))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel76)
-                    .addComponent(jLabel34)
-                    .addComponent(jLabel78)
-                    .addComponent(jLabel37))
-                .addGap(10, 10, 10)
-                .addComponent(jLabel59)
-                .addGap(7, 7, 7)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel77)
-                    .addComponent(jLabel54)
-                    .addComponent(jLabel55)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel106))
-                    .addComponent(jLabel57)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel56))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel60)
-                            .addComponent(jLabel105)
-                            .addComponent(jLabel58))))
-                .addGap(7, 7, 7)
-                .addComponent(jLabel45))
-        );
+        jLabel64.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
+        jLabel64.setText("Celular:");
+        jPanel2.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -904,44 +587,80 @@ public class otros extends javax.swing.JPanel implements Printable {
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel labelCarnet;
+    private javax.swing.JLabel labelCarnet1;
+    private javax.swing.JLabel labelCelular;
+    private javax.swing.JLabel labelCelular1;
+    private javax.swing.JLabel labelDireccion;
+    private javax.swing.JLabel labelDireccion1;
+    private javax.swing.JLabel labelEntrega;
+    private javax.swing.JLabel labelEntrega1;
+    private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel labelNombre1;
+    private javax.swing.JLabel labelNroOrden;
+    private javax.swing.JLabel labelNroOrden1;
+    private javax.swing.JLabel labelRegistro;
+    private javax.swing.JLabel labelRegistro1;
+    private javax.swing.JTextField txtRepuesto;
+    private javax.swing.JTextField txtRepuesto1;
+    private javax.swing.JTextField txtServicio;
+    private javax.swing.JTextField txtServicio1;
+    private javax.swing.JTextArea txtTrabajo;
+    private javax.swing.JTextArea txtTrabajo1;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public int print(Graphics graf, PageFormat pageFormat, int pageIndex) throws PrinterException {
-        if(pageIndex>0){
-          return NO_SUCH_PAGE;
+     public void fillForm(String id ,String fecha_recepcion,String fecha_entrega,
+                        String repuesto,String Servicio,
+                       String carnet,String nombre, String telefono,String direccion,String descripcion
+                       ){
+      
+      if(Integer.parseInt(id)<10){
+          id="000"+id;
       }
-        Graphics2D a= (Graphics2D) graf;
-        a.translate(pageFormat.getImageableX()+30, pageFormat.getImageableY()+30);
-        a.scale(1.0, 1.1);
-        this.printAll(graf);
-        return PAGE_EXISTS;
-    }
+      if(Integer.parseInt(id)>=10 && Integer.parseInt(id)<100){
+          id="00"+id;
+      }
+      if(Integer.parseInt(id)>=100 && Integer.parseInt(id)<1000){
+          id="0"+id;
+      }
+      this.labelNroOrden.setText(id);
+      this.labelNroOrden1.setText(id);
+      
+      this.labelRegistro.setText(fecha_recepcion);
+      this.labelRegistro1.setText(fecha_recepcion);
+      
+      this.labelEntrega.setText(fecha_entrega);
+      this.labelEntrega1.setText(fecha_entrega);
+      
+      this.labelCarnet.setText(carnet);
+      this.labelCarnet1.setText(carnet);
+      
+      this.labelNombre.setText(nombre);
+      this.labelNombre1.setText(nombre);
+      
+      this.labelCelular.setText(telefono);
+      this.labelCelular1.setText(telefono);
+      
+      this.labelDireccion.setText(direccion);
+      this.labelDireccion1.setText(direccion);
+      
+      
+      
+      this.txtTrabajo.setText(descripcion);
+      this.txtTrabajo1.setText(descripcion);
+      
+      this.txtServicio.setText(Servicio);
+      this.txtServicio1.setText(Servicio);
+      
+      this.txtRepuesto.setText(repuesto);
+      this.txtRepuesto1.setText(repuesto);
+      
+  }
 }

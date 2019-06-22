@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author pablo
  */
 public class ModeloEquipos {
+
     ConexionBD Conexion;
     int Total;
 
@@ -22,14 +23,12 @@ public class ModeloEquipos {
         this.Conexion = new ConexionBD();
         this.Total = 0;
     }
-    
-    
 
-    public boolean guardar(int id, String carnet, String numero, String nombre,String direccion) {
+    public boolean guardar(int id, String carnet, String numero, String nombre, String direccion) {
         if (id == 0) {
             String consulta = "INSERT INTO cliente "
                     + "(carnetIdentidad, nombre, numeroTelefono, fechaRegistro,direccion) VALUES "
-                    + "('" + carnet + "', '" + nombre + "', '" + numero + "',NOW(),'"+direccion+"')";
+                    + "('" + carnet + "', '" + nombre + "', '" + numero + "',NOW(),'" + direccion + "')";
             if (Conexion.ejecutarConsulta(consulta)) {
                 return true;
             } else {
@@ -37,7 +36,7 @@ public class ModeloEquipos {
             }
         } else {
             String consulta = "UPDATE cliente "
-                    + "SET nombre='" + nombre + "', carnetIdentidad=" + carnet + ",numeroTelefono='"+numero+"',direccion='"+direccion+"' "
+                    + "SET nombre='" + nombre + "', carnetIdentidad=" + carnet + ",numeroTelefono='" + numero + "',direccion='" + direccion + "' "
                     + " WHERE id=" + id;
             if (Conexion.ejecutarConsulta(consulta)) {
                 return true;
@@ -46,9 +45,9 @@ public class ModeloEquipos {
             }
         }
     }
-    
-    public boolean borrar(int id) {
-        String consulta = "DELETE FROM cliente "
+
+    public boolean entregarEquipo(int id) {
+        String consulta = "UPDATE numeroServicio SET fecha_recogida=NOW(),estado='entregado'"
                 + " WHERE id = " + id;
         if (Conexion.ejecutarConsulta(consulta)) {
             return true;
@@ -56,39 +55,38 @@ public class ModeloEquipos {
             return false;
         }
     }
-    
-    public DefaultTableModel getLista(String textoBusqueda,String tipo,String estado) {
+
+    public DefaultTableModel getLista(String textoBusqueda, String tipo, String estado) {
         DefaultTableModel modeloTabla = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-               return false;
+                return false;
             }
         };
         try {
-            
-            String consulta="select N.id,C.carnetIdentidad,marca,modelo,N.fecha_registro,N.fecha_entrega from numeroServicio N "
-                        + "inner join soporte_"+tipo+" P on N.id = P.id_servicio "
-                        +" inner join cliente C on N.id_cliente = C.id WHERE estado='"+estado+"'";
-            
-            
-            boolean condicion= true;
+
+            String consulta = "select N.id,C.carnetIdentidad,costo_repuesto,costo_servicio,N.fecha_registro,N.fecha_entrega "
+                    + " from numeroServicio N "
+                    + " inner join soporte_" + tipo + " P on N.id = P.id_servicio "
+                    + " inner join cliente C on N.id_cliente = C.id WHERE estado='" + estado + "'";
+
+            boolean condicion = true;
             if (!textoBusqueda.isEmpty()) {
-                consulta += " AND (N.id LIKE '%" + textoBusqueda + "%' OR C.carnetIdentidad LIKE '%" + textoBusqueda + "%'"
-                        + " OR marca LIKE '%" + textoBusqueda + "%') ";
-                
+                consulta += " AND (N.id =" + textoBusqueda + " OR C.carnetIdentidad LIKE '%" + textoBusqueda + "%') ";
+
             }
             ResultSet resultado = Conexion.getDatos(consulta);
             // Se crea el array de columnas
-            String fecha="";
-            int tipoestado=0;
-            if(estado.equals("entregado")){
-                fecha="Fecha de Entrega";
-                tipoestado=6;
-            }else{
-                fecha="Fecha Recepcion";
-                tipoestado=5;
+            String fecha = "";
+            int tipoestado = 0;
+            if (estado.equals("entregado")) {
+                fecha = "Fecha de Entrega";
+                tipoestado = 6;
+            } else {
+                fecha = "Fecha Recepcion";
+                tipoestado = 5;
             }
-            String[] columnas = {"Id", "Carnet", "Marca","Modelo",fecha};
+            String[] columnas = {"Id", "Carnet", "Costo Repuesto", "Costo Servicio", fecha};
 
             resultado.last();
             Total = resultado.getRow();
@@ -114,9 +112,9 @@ public class ModeloEquipos {
         }
         return modeloTabla;
     }
-    
+
     public int getTotal() {
         return Total;
     }
-    
+
 }

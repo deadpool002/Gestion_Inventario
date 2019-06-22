@@ -44,8 +44,10 @@ public class PanelEquipos extends javax.swing.JPanel {
         TablaArticulos = new javax.swing.JTable();
         BtnBuscar = new javax.swing.JButton();
         impresora = new javax.swing.JRadioButton();
-        computadora = new javax.swing.JRadioButton();
+        pc = new javax.swing.JRadioButton();
         comboEstado = new javax.swing.JComboBox();
+        portatil = new javax.swing.JRadioButton();
+        otro = new javax.swing.JRadioButton();
 
         setBackground(new java.awt.Color(101, 168, 195));
         setPreferredSize(new java.awt.Dimension(952, 488));
@@ -57,7 +59,7 @@ public class PanelEquipos extends javax.swing.JPanel {
 
         jLabel2.setText("Buscar Por Id o CI");
 
-        btnImprimir.setText("Imprimir");
+        btnImprimir.setText("Equipo Entregado");
 
         TablaArticulos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,15 +78,25 @@ public class PanelEquipos extends javax.swing.JPanel {
         impresora.setText("Impresoras");
         impresora.setOpaque(false);
 
-        computadora.setBackground(new java.awt.Color(204, 255, 102));
-        buttonGroup1.add(computadora);
-        computadora.setSelected(true);
-        computadora.setText("computadoras");
-        computadora.setOpaque(false);
+        pc.setBackground(new java.awt.Color(204, 255, 102));
+        buttonGroup1.add(pc);
+        pc.setText("pc Escritorio");
+        pc.setOpaque(false);
 
         comboEstado.setBackground(new java.awt.Color(0, 0, 0));
         comboEstado.setForeground(new java.awt.Color(255, 255, 255));
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "entregado", "pendiente" }));
+
+        portatil.setBackground(new java.awt.Color(204, 255, 102));
+        buttonGroup1.add(portatil);
+        portatil.setSelected(true);
+        portatil.setText("pc portatil");
+        portatil.setOpaque(false);
+
+        otro.setBackground(new java.awt.Color(153, 255, 0));
+        buttonGroup1.add(otro);
+        otro.setText("otros");
+        otro.setOpaque(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -93,22 +105,29 @@ public class PanelEquipos extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(btnImprimir)
                         .addGap(28, 28, 28)
-                        .addComponent(impresora)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(impresora)
+                            .addComponent(otro))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(computadora)
-                        .addGap(30, 30, 30)
-                        .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TxtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnBuscar)
-                        .addGap(6, 6, 6))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(portatil)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pc)
+                                .addGap(30, 30, 30)
+                                .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(TxtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BtnBuscar)
+                                .addGap(6, 6, 6)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(147, 147, 147)
@@ -124,7 +143,11 @@ public class PanelEquipos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(LabelTotal))
-                .addGap(50, 50, 50)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(otro)
+                    .addComponent(portatil))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
@@ -135,7 +158,7 @@ public class PanelEquipos extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnImprimir)
                         .addComponent(impresora)
-                        .addComponent(computadora)
+                        .addComponent(pc)
                         .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,11 +175,13 @@ public class PanelEquipos extends javax.swing.JPanel {
     private javax.swing.JButton btnImprimir;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox comboEstado;
-    private javax.swing.JRadioButton computadora;
     private javax.swing.JRadioButton impresora;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JRadioButton otro;
+    private javax.swing.JRadioButton pc;
+    private javax.swing.JRadioButton portatil;
     // End of variables declaration//GEN-END:variables
     public JButton BtnBuscar() {
         return BtnBuscar;
@@ -179,13 +204,23 @@ public class PanelEquipos extends javax.swing.JPanel {
         return comboEstado;
     }
 
-    public JRadioButton getComputadora() {
-        return computadora;
-    }
-
     public JRadioButton getImpresora() {
         return impresora;
     }
+
+    public JRadioButton getOtro() {
+        return otro;
+    }
+
+    public JRadioButton getPc() {
+        return pc;
+    }
+
+    public JRadioButton getPortatil() {
+        return portatil;
+    }
+
+    
 
     
    
