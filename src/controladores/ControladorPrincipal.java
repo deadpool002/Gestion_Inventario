@@ -861,7 +861,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
                                 registroPc.getTxtSerieCables().getText(),
                                 registroPc.getTxtTrabajo().getText())) {
                     System.out.println("Registro Correcto");
-                    loadDesktopData(registroImpresora.getTxtNumeroOrden().getText());
+                    loadDesktopData(registroPc.getTxtNumeroOrden().getText());
                 } else {
                     System.out.println("Error al registrar");
                 }
@@ -879,7 +879,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
                         + registroPc.getTxtHoraEntrega().getText(),
                         registroPc.getTxtCostoRepuesto().getText(),
                         registroPc.getTxtCostoServicio().getText())
-                        && modeloRegistroServicio.saveDesktop(
+                        && modeloRegistroServicio.updateDesktop(
                                 registroPc.getTxtNumeroOrden().getText(),
                                 registroPc.getTxtTargetaMadre().getText(),
                                 registroPc.getTxtProcesador().getText(),
@@ -896,10 +896,33 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
                                 registroPc.getTxtSerieCables().getText(),
                                 registroPc.getTxtTrabajo().getText())) {
                     
-                    loadDesktopData(registroImpresora.getTxtNumeroOrden().getText());
+                    loadDesktopData(registroPc.getTxtNumeroOrden().getText());
                 } else {
                     System.out.println("Error al registrar");
                 }
+            }
+        });
+        registroPc.getBtnImprimir().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                String[] desktop = modeloRegistroServicio.getDesktop(registroPc.getTxtNumeroOrden().getText());
+                panelEscritorio.fillData(
+                        registroPc.getTxtNumeroOrden().getText(),
+                        desktop[0] + " " + desktop[1],
+                        desktop[2] + " " + desktop[3],
+                        desktop[4], desktop[5],
+                        desktop[6], desktop[7],
+                        desktop[8], desktop[9],
+                        desktop[10], desktop[11],
+                        desktop[12], desktop[13],
+                        desktop[14], desktop[15], desktop[16],
+                        desktop[17], desktop[18], desktop[19],
+                        desktop[20], desktop[21], desktop[22],
+                        desktop[23]
+                );
+                interfazImpresion.setImpresion(panelEscritorio);
+                interfazImpresion.setVisible(true);
             }
         });
     }

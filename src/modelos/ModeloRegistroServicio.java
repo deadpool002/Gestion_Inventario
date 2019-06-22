@@ -220,31 +220,31 @@ public class ModeloRegistroServicio {
             ResultSet resultado = Conexion.getDatos(consulta);
 
             if (resultado.next()) {
-                desktop[0]=resultado.getString(1);//fecha registro
-                desktop[1]=resultado.getString(2);//hora registro
-                desktop[2]=resultado.getString(3);//fecha entrega
-                desktop[3]=resultado.getString(4);//hora entrega
-                desktop[4]=resultado.getString(5);//costo repuesto
-                desktop[5]=resultado.getString(6);//costo servicio
-                desktop[6]=resultado.getString(7);//carnet
-                desktop[7]=resultado.getString(8);//nombre
-                desktop[8]=resultado.getString(9);//celular
-                desktop[9]=resultado.getString(10);//direccion
-                desktop[10]=resultado.getString(11);// tarjeta madre
-                desktop[11]=resultado.getString(12);// procesador
-                desktop[12]=resultado.getString(13);// ram
-                desktop[13]=resultado.getString(14);// disco duro
-                desktop[14]=resultado.getString(15);// tarjeta video
-                desktop[15]=resultado.getString(16);// tarjeta sonido
-                desktop[16]=resultado.getString(17);// wifi
-                desktop[17]=resultado.getString(18);//red
-                desktop[18]=resultado.getString(19);// quemador
-                desktop[19]=resultado.getString(20);// monitor
-                desktop[20]=resultado.getString(21);//serie monitor
-                desktop[21]=resultado.getString(22);// cables
-                desktop[22]=resultado.getString(23);// serie cables
-                desktop[23]=resultado.getString(24);// trabajo
-                
+                desktop[0] = resultado.getString(1);//fecha registro
+                desktop[1] = resultado.getString(2);//hora registro
+                desktop[2] = resultado.getString(3);//fecha entrega
+                desktop[3] = resultado.getString(4);//hora entrega
+                desktop[4] = resultado.getString(5);//costo repuesto
+                desktop[5] = resultado.getString(6);//costo servicio
+                desktop[6] = resultado.getString(7);//carnet
+                desktop[7] = resultado.getString(8);//nombre
+                desktop[8] = resultado.getString(9);//celular
+                desktop[9] = resultado.getString(10);//direccion
+                desktop[10] = resultado.getString(11);// tarjeta madre
+                desktop[11] = resultado.getString(12);// procesador
+                desktop[12] = resultado.getString(13);// ram
+                desktop[13] = resultado.getString(14);// disco duro
+                desktop[14] = resultado.getString(15);// tarjeta video
+                desktop[15] = resultado.getString(16);// tarjeta sonido
+                desktop[16] = resultado.getString(17);// wifi
+                desktop[17] = resultado.getString(18);//red
+                desktop[18] = resultado.getString(19);// quemador
+                desktop[19] = resultado.getString(20);// monitor
+                desktop[20] = resultado.getString(21);//serie monitor
+                desktop[21] = resultado.getString(22);// cables
+                desktop[22] = resultado.getString(23);// serie cables
+                desktop[23] = resultado.getString(24);// trabajo
+
             }
             return desktop;
         } catch (SQLException ex) {
@@ -279,4 +279,18 @@ public class ModeloRegistroServicio {
         }
     }
 
+    public boolean updateDesktop(String id, String tm, String proc, String ram, String dduro, String video, String sonido,
+            String wifi, String red, String quem, String monitor, String nsm, String cable, String nsc, String desc) {
+        String consulta = "UPDATE soporte_pc "
+                + " SET tarjeta_madre='"+tm+"',procesador='"+proc+"',ram='"+ram+"',disco_duro='"+dduro+"',"
+                + " tarjeta_video='"+video+"',tarjeta_sonido='"+sonido+"'"
+                + ",tarjeta_wifi='"+wifi+"',tarjeta_red='"+red+"',quemador='"+quem+"',monitor='"+monitor+"',numero_serie_monitor='"+nsm+"',"
+                + " cable='"+cable+"',numero_serie_cable='"+nsc+"',trabajo_realizar='"+desc+"' "
+                + " WHERE id_servicio=" + id;
+        if (Conexion.ejecutarConsulta(consulta)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
