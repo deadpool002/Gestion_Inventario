@@ -8,6 +8,7 @@ package controladores;
 import interfaces.InterfazPrincipal;
 import interfaces.RegistroCliente;
 import interfaces.RegistroImpresora;
+import interfaces.RegistroPc;
 import interfaces.RegistroPortatil;
 import interfaces.RegistroUsuario;
 import interfaces.impresion.InterfazImpresion;
@@ -75,7 +76,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
 
     /*REGISTRO DE SERVICIOS*/
     RegistroPortatil registroPortatil;
-
+    RegistroPc registroPc;
     RegistroImpresora registroImpresora;
     ModeloRegistroServicio modeloRegistroServicio;
 
@@ -132,6 +133,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         /* SERVICIOS*/
         registroPortatil = new RegistroPortatil();
         registroImpresora = new RegistroImpresora();
+        registroPc = new RegistroPc();
         modeloRegistroServicio = new ModeloRegistroServicio();
     }
 
@@ -141,7 +143,13 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
             validacionDatos();
         }
         if (ae.getSource().equals(this.interfazPrincipal.getMenuEscritorio())) {
-            System.out.println("Escritorio");
+            if (panelClientes.TablaClientes().getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar un Cliente");
+            } else {
+                registroNumeroOrden(Integer.parseInt(panelClientes.TablaClientes().getValueAt(
+                        panelClientes.TablaClientes().getSelectedRow(),
+                        0).toString()), "pc");
+            }
         }
         if (ae.getSource().equals(this.interfazPrincipal.getMenuImpresora())) {
             if (panelClientes.TablaClientes().getSelectedRow() == -1) {
@@ -153,7 +161,13 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
             }
         }
         if (ae.getSource().equals(this.interfazPrincipal.getMenuOtros())) {
-            System.out.println("Otros");
+            if (panelClientes.TablaClientes().getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar un Cliente");
+            } else {
+                registroNumeroOrden(Integer.parseInt(panelClientes.TablaClientes().getValueAt(
+                        panelClientes.TablaClientes().getSelectedRow(),
+                        0).toString()), "otros");
+            }
         }
         if (ae.getSource().equals(this.interfazPrincipal.getMenuPortatil())) {
             if (panelClientes.TablaClientes().getSelectedRow() == -1) {
@@ -550,6 +564,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
                 Impresoras();
             }
             if (_tipo.equals("pc")) {
+                Pcs();
             }
             if (_tipo.equals("otros")) {
             }
@@ -752,7 +767,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
                                 registroImpresora.getCartuchoSI().isSelected() ? registroImpresora.getTxtNegro().getText() : "",
                                 registroImpresora.getTxtTrabajo().getText())) {
                     loadPrinterData(registroImpresora.getTxtNumeroOrden().getText());
-                }else{
+                } else {
                     System.out.println("Error al modificar");
                 }
             }
@@ -770,7 +785,7 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
                         printer[8], printer[9],
                         printer[10], printer[11],
                         printer[12], printer[13],
-                        printer[14], printer[15],printer[16]);
+                        printer[14], printer[15], printer[16]);
                 interfazImpresion.setImpresion(panelImpresora);
                 interfazImpresion.setVisible(true);
             }
@@ -803,6 +818,125 @@ public class ControladorPrincipal implements ActionListener, KeyListener {
         registroImpresora.getTxtTrabajo().setText(printer[16]);
         registroImpresora.getTxtNumeroOrden().setText(id);
 
+    }
+
+    private void Pcs() {
+        String datosServicio[] = modeloRegistroServicio.getUltimoRegistro();
+
+        registroPc.getFechaRecepcion().setDate(parseDate(datosServicio[0]));
+        registroPc.getTxtHoraRecepcion().setText(datosServicio[1]);
+        registroPc.getTxtCarnet().setText(datosServicio[2]);
+        registroPc.getTxtNombre().setText(datosServicio[3]);
+        registroPc.getTxtDireccion().setText(datosServicio[4]);
+        registroPc.getTxtCelular().setText(datosServicio[5]);
+        registroPc.getTxtNumeroOrden().setText(datosServicio[6]);
+        registroPc.getBtnGuardar().setVisible(true);
+        registroPc.setVisible(true);
+        registroPc.getBtnGuardar().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (modeloRegistroServicio.modificarServicio(
+                        registroPc.getTxtNumeroOrden().getText(),
+                        df.format(registroPc.getFechaRecepcion().getDate()) + " "
+                        + registroPc.getTxtHoraRecepcion().getText(),
+                        df.format(registroPc.getFechaEntrega().getDate()) + " "
+                        + registroPc.getTxtHoraEntrega().getText(),
+                        registroPc.getTxtCostoRepuesto().getText(),
+                        registroPc.getTxtCostoServicio().getText())
+                        && modeloRegistroServicio.saveDesktop(
+                                registroPc.getTxtNumeroOrden().getText(),
+                                registroPc.getTxtTargetaMadre().getText(),
+                                registroPc.getTxtProcesador().getText(),
+                                registroPc.getTxtMemoriaRam().getText(),
+                                registroPc.getTxtDiscoDuro().getText(),
+                                registroPc.getTxtTarjetaVideo().getText(),
+                                registroPc.getTxtTarjetaSonido().getText(),
+                                registroPc.getTxtTarjetaWifi().getText(),
+                                registroPc.getTxtTarjetaRed().getText(),
+                                registroPc.getTxtQuemador().getText(),
+                                registroPc.getMonitorSI().isSelected() ? "SI" : "NO",
+                                registroPc.getMonitorSI().isSelected() ? registroPc.getTxtSerieMonitor().getText() : "",
+                                registroPc.getTxtCables().getText(),
+                                registroPc.getTxtSerieCables().getText(),
+                                registroPc.getTxtTrabajo().getText())) {
+                    System.out.println("Registro Correcto");
+                    loadDesktopData(registroImpresora.getTxtNumeroOrden().getText());
+                } else {
+                    System.out.println("Error al registrar");
+                }
+            }
+        });
+        registroPc.getBtnModificar().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (modeloRegistroServicio.modificarServicio(
+                        registroPc.getTxtNumeroOrden().getText(),
+                        df.format(registroPc.getFechaRecepcion().getDate()) + " "
+                        + registroPc.getTxtHoraRecepcion().getText(),
+                        df.format(registroPc.getFechaEntrega().getDate()) + " "
+                        + registroPc.getTxtHoraEntrega().getText(),
+                        registroPc.getTxtCostoRepuesto().getText(),
+                        registroPc.getTxtCostoServicio().getText())
+                        && modeloRegistroServicio.saveDesktop(
+                                registroPc.getTxtNumeroOrden().getText(),
+                                registroPc.getTxtTargetaMadre().getText(),
+                                registroPc.getTxtProcesador().getText(),
+                                registroPc.getTxtMemoriaRam().getText(),
+                                registroPc.getTxtDiscoDuro().getText(),
+                                registroPc.getTxtTarjetaVideo().getText(),
+                                registroPc.getTxtTarjetaSonido().getText(),
+                                registroPc.getTxtTarjetaWifi().getText(),
+                                registroPc.getTxtTarjetaRed().getText(),
+                                registroPc.getTxtQuemador().getText(),
+                                registroPc.getMonitorSI().isSelected() ? "SI" : "NO",
+                                registroPc.getMonitorSI().isSelected() ? registroPc.getTxtSerieMonitor().getText() : "",
+                                registroPc.getTxtCables().getText(),
+                                registroPc.getTxtSerieCables().getText(),
+                                registroPc.getTxtTrabajo().getText())) {
+                    
+                    loadDesktopData(registroImpresora.getTxtNumeroOrden().getText());
+                } else {
+                    System.out.println("Error al registrar");
+                }
+            }
+        });
+    }
+
+    private void loadDesktopData(String id) {
+        String desktop[]= modeloRegistroServicio.getDesktop(id);
+        registroPc.getBtnGuardar().setVisible(false);
+        registroPc.getFechaRecepcion().setDate(parseDate(desktop[0]));
+        registroPc.getTxtHoraRecepcion().setText(desktop[1]);
+        registroPc.getFechaEntrega().setDate(parseDate(desktop[2]));
+        registroPc.getTxtHoraEntrega().setText(desktop[3]);
+        registroPc.getTxtCostoRepuesto().setText(desktop[4]);
+        registroPc.getTxtCostoServicio().setText(desktop[5]);
+        registroPc.getTxtCarnet().setText(desktop[6]);
+        registroPc.getTxtNombre().setText(desktop[7]);
+        registroPc.getTxtCelular().setText(desktop[8]);
+        registroPc.getTxtDireccion().setText(desktop[9]);
+        registroPc.getTxtTargetaMadre().setText(desktop[10]);
+        registroPc.getTxtProcesador().setText(desktop[11]);
+        registroPc.getTxtMemoriaRam().setText(desktop[12]);
+        registroPc.getTxtDiscoDuro().setText(desktop[13]);
+        registroPc.getTxtTarjetaVideo().setText(desktop[14]);
+        registroPc.getTxtTarjetaSonido().setText(desktop[15]);
+        registroPc.getTxtTarjetaWifi().setText(desktop[16]);
+        registroPc.getTxtTarjetaRed().setText(desktop[17]);
+        registroPc.getTxtQuemador().setText(desktop[18]);
+        if(desktop[19].equals("SI")){
+            registroPc.getMonitorSI().setSelected(true);  
+        }else{
+            registroPc.getMonitorNO().setSelected(true);
+        }
+        registroPc.getTxtSerieMonitor().setText(desktop[20]);
+        registroPc.getTxtCables().setText(desktop[21]);
+        registroPc.getTxtSerieCables().setText(desktop[22]);
+        registroPc.getTxtTrabajo().setText(desktop[23]);
+        
+        
     }
 
     private Date parseDate(String fecha) {
