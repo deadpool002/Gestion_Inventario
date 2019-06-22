@@ -25,10 +25,6 @@ Create Table cliente(
     primary key(id,carnetIdentidad)
 );
 
-insert into cliente(carnetIdentidad,nombre,numeroTelefono,fechaRegistro)values
-(14176648,'Juan Pablo','78670128',now());
-
-
 
 create table numeroServicio(
 	id int auto_increment primary key,
